@@ -1,11 +1,11 @@
-# Título Proyecto
+# Sistema de Gestión de Alquiler de Habitaciones y Convivencia para Estudiantes (RoomieHub)
 
-## Miembros del grupo LX-XXX-X (sustituir)
+## Miembros del grupo L1-Grupo 4
 
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
+1. Nolasco Calderón, Ángel
+1. Apellidos, Khaled
+1. De la Fuente Hernández, Gonzalo
+1. Galocha López, Adrián
 
 ## 1. Introducción al problema
 
