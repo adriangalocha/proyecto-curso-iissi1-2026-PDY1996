@@ -28,7 +28,7 @@
 
     <img src="./Fotos/Foto tablón de anuncios habitaciones.webp" alt="Foto tablón de anuncios" width="500">
 
-    <br><br>
+    <br>
     
     <img src="./Fotos/Foto RoomieHub.jpg" alt="Foto RoomieHub" width="500">
 
