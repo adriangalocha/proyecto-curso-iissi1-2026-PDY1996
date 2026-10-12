@@ -9,8 +9,23 @@
 
 ## 1. Introducción al problema
 
-- Nos encontramos ante un sistema de gestión de alquiler y habitaciones y convivencia para estudiantes, donde nos encontraremos distintas posibilidades. Tendremos tres propietarios, el administrador del sistema, los propietarios y los inquilinos. Tenemos en cuenta que cada inquilino puede alquilar una habitación o alquilar toda la vivienda.
-- Se realizarán pagos dependiendo del servicio contratado, es decir, si alquilan una sola habitación o deciden alquilar la vivienda entera, además habrá también fianza a prontopago.
+- El proyecto "RoomieHub" consiste en el desarrollo de un sistema de información diseñado específicamente para la gestión de alquiler de habitaciones, viviendas completas y la organización de la convivencia para estudiantes. La plataforma busca actuar como intermediario y facilitador entre personas que disponen de inmuebles y estudiantes que necesitan alojamiento durante su curso académico.
+- En el sistema tenemos tres tipos de usurarios:
+    - Inquilino (Estudiantes): Buscan alojamiento. Tienen la flexibilidad de alquilar una habitación en un piso compartido o, si vienen en grupo, una vivienda completa.
+    - Propietario: Dueños o gestores de sus inmuebles que publican sus viviendas o habitaciones disponibles.
+    - Administrador del sistema: Personal encargado de mantener la plataforma.
+- Actualmente, la búsqueda de alojamiento para estudiantes y la posterior gestión se realiza de forma caótica. Se utilizan plataformas genéricas, grupos de redes sociales o el tradicional "boca a boca", lo que genera varios problemas:
+    - Falta de confianza y seguridad, ya que abundan las estafas con los pagos de las fianzas y reservas por adelantado.
+    - Incompatibilidad de perfiles, ya que al alquilar habitaciones sueltas, los estudiantes suelen acabar viviendo con desconocidos sin saber si sus hábitos de estudio o estilo de vida son compatibles, lo que genera problemas de convivencia.
+    - Gestión de pagos desconocida, ya que el pago de alquileres, recibos de luz o agua, y fianzas se suele hacer en efectivo o por transferencias manuales, sin un registro claro que protega ambas partes.
+    - Rigidez, ya que las inmobiliarias tradicionales siempre imponen contratos de un año completo, cuando los estudiantes a menudo necesitan contratos de 9 o 10 meses, la duración del curso escolar.
+- RoomieHub nace con la expectativa de solucionar estos inconvenientes centralizando todo el proceso. Se espera que el sistema permita:
+    - Gestionar contratos flexibles.
+    - Integrar una pasarela para los pagos mensuales y el depósito de una fianza, asegurando que el dinero esté protegido.
+    - Facilitar información sobre la vivienda para que los estudiantes sepan qué servicios están incluidos, mejorando así la transparencia y la convivencia.
+
+    <img src="./Fotos/Foto tablón de anuncios habitaciones.webp" alt="Foto tablón de anuncios" width="500">
+    <img src="./Fotos/Foto RoomieHub.jpg" alt="Foto RoomieHub" width="500">
 
 ## 2. Glosario de términos
 
