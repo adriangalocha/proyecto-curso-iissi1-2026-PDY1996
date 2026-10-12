@@ -27,10 +27,12 @@
     <br><br>
 
     <img src="./Fotos/Foto tablón de anuncios habitaciones.webp" alt="Foto tablón de anuncios" width="500">
+    Aquí podemos observar cómo se realizaría la búsqueda de habitaciones o viviendas antes de nuestro sistema de gestión.
 
     <br>
     
     <img src="./Fotos/Foto RoomieHub.jpg" alt="Foto RoomieHub" width="500">
+    Así quedaría después de implementar nuestro sistema de gestión.
 
 ## 2. Glosario de términos
 
