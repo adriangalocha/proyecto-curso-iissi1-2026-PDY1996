@@ -44,6 +44,8 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 - Términos específicos del dominio del problema, ordenados alfabéticamente. Se valorará la presencia de información multimedia.
 
+-*Contrato flexible:* Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.
+
 ## 3. Visión general del sistema
 
 ### 3.1. Requisitos generales
