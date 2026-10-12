@@ -3,13 +3,14 @@
 ## Miembros del grupo L1-Grupo 4
 
 1. Nolasco Calderón, Ángel
-1. Apellidos, Khaled
+1. Al Khyat, Khaled
 1. De la Fuente Hernández, Gonzalo
 1. Galocha López, Adrián
 
 ## 1. Introducción al problema
 
-- Descripción del problema para poner en contexto el proyecto, incluyendo información sobre los clientes y usuarios, la situación actual, problemas, expectativas, etc. Se valorará la presencia de información multimedia (fotos, gráficos, documentos escaneados, etc.).
+- Nos encontramos ante un sistema de gestión de alquiler y habitaciones y convivencia para estudiantes, donde nos encontraremos distintas posibilidades. Tendremos tres propietarios, el administrador del sistema, los propietarios y los inquilinos. Tenemos en cuenta que cada inquilino puede alquilar una habitación o alquilar toda la vivienda.
+- Se realizarán pagos dependiendo del servicio contratado, es decir, si alquilan una sola habitación o deciden alquilar la vivienda entera, además habrá también fianza a prontopago.
 
 ## 2. Glosario de términos
 
