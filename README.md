@@ -24,7 +24,12 @@
     - Integrar una pasarela para los pagos mensuales y el depósito de una fianza, asegurando que el dinero esté protegido.
     - Facilitar información sobre la vivienda para que los estudiantes sepan qué servicios están incluidos, mejorando así la transparencia y la convivencia.
 
+    <br><br>
+
     <img src="./Fotos/Foto tablón de anuncios habitaciones.webp" alt="Foto tablón de anuncios" width="500">
+
+    <br><br><br>
+    
     <img src="./Fotos/Foto RoomieHub.jpg" alt="Foto RoomieHub" width="500">
 
 ## 2. Glosario de términos
