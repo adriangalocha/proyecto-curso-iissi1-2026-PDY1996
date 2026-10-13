@@ -47,7 +47,8 @@ Así quedaría después de implementar nuestro sistema de gestión.
 ## 3. Visión general del sistema
 - Dicho sistema web que diseñaremos permitirá que cada tipo de usuario acceda a las funcionalidades según su rol (adminisrador, propietario o inquilino), lo que asegurara la seguridad de los datos de cada uno de ellos, la eficiencia y la calidad de la información.
 ### 3.1. Requisitos generales
-El sistema RoomieHub debe proporcionar las siguientes funcionalidades principales para automatizar la gestión de alquileres y convivencia:
+
+- El sistema RoomieHub debe proporcionar las siguientes funcionalidades principales para automatizar la gestión de alquileres y convivencia
 
     - **Gestión de usuarios:** Permitir el registro, autenticación y edición de perfiles para los tres roles de la plataforma, incluyendo la validación de la condición de estudiante universitario para los inquilinos.
 
@@ -60,6 +61,7 @@ El sistema RoomieHub debe proporcionar las siguientes funcionalidades principale
     - **Gestión económica:** Integrar el procesamiento del cobro de la fianza a prontopago para bloquear la reserva, así como el registro de los pagos mensuales de las rentas.
 
     - **Administración y control:** Disponer de un panel para que el Administrador supervise las operaciones económicas, valide perfiles y gestione posibles disputas o bloqueos de cuentas.
+    
 ### 3.2. Usuarios del sistema
 
 ## 4. Catálogo de requisitos
