@@ -139,9 +139,9 @@ quiero que el sistema almacene los datos personales detallados de los estudiante
 para garantizar la seguridad financiera de los alquileres y poder aplicar los filtros de convivencia.
 
 **Pruebas de aceptación:**
-* Verificar que la base de datos persiste correctamente los atributos obligatorios del Inquilino (`esErasmus`, `genero`, `requiereAval`) y su clave foránea al catálogo `Pais`.
-* Comprobar la restricción de unicidad (UNIQUE) para el DNI del Inquilino y el DNI del Avalista.
-* Verificar que, si se elimina un Inquilino, no se elimine el Avalista si este sigue respaldando a otros estudiantes (integridad referencial).
+- Verificar que la base de datos persiste correctamente los atributos obligatorios del Inquilino (`esErasmus`, `genero`, `requiereAval`) y su clave foránea al catálogo `Pais`.
+- Comprobar la restricción de unicidad (UNIQUE) para el DNI del Inquilino y el DNI del Avalista.
+- Verificar que, si se elimina un Inquilino, no se elimine el Avalista si este sigue respaldando a otros estudiantes (integridad referencial).
 
 ##### R.I.02. Catálogo de Viviendas y Restricciones de Convivencia
 Como Propietario,
@@ -149,9 +149,9 @@ quiero que el sistema guarde la información estructural de mis inmuebles (aforo
 para que la plataforma pueda filtrar automáticamente a los candidatos incompatibles.
 
 **Pruebas de aceptación:**
-* Comprobar que se almacenan correctamente los atributos de control de la entidad Vivienda (`admiteErasmus`, `admiteParejas`, y el enumerado `generoAdmitido`).
-* Verificar que la dirección de la vivienda está protegida por una restricción de unicidad para evitar duplicados.
-* Asegurar la correcta vinculación (Clave Foránea) de la vivienda con el catálogo normalizado de `Ciudad` (3FN).
+- Comprobar que se almacenan correctamente los atributos de control de la entidad Vivienda (`admiteErasmus`, `admiteParejas`, y el enumerado `generoAdmitido`).
+- Verificar que la dirección de la vivienda está protegida por una restricción de unicidad para evitar duplicados.
+- Asegurar la correcta vinculación (Clave Foránea) de la vivienda con el catálogo normalizado de `Ciudad` (3FN).
 
 ##### R.I.03. Historial de Contratos Flexibles y Fianzas
 Como Administrador de la plataforma,
@@ -159,9 +159,9 @@ quiero que el sistema registre un historial trazable de los contratos de arrenda
 para mantener un registro legal inmutable de la ocupación de las habitaciones a lo largo de los cursos académicos.
 
 **Pruebas de aceptación:**
-* Comprobar que el contrato persiste los atributos obligatorios: `fechaInicio`, `fechaFin`, `importeFianza` y el `estado` (ACTIVO, RESERVADO, FINALIZADO).
-* Verificar que el diseño soporta de manera eficiente las consultas por rango de fechas para evaluar el solapamiento.
-* Asegurar que un contrato queda vinculado correctamente a la `Habitacion` concreta y al `Inquilino` titular.
+- Comprobar que el contrato persiste los atributos obligatorios: `fechaInicio`, `fechaFin`, `importeFianza` y el `estado` (ACTIVO, RESERVADO, FINALIZADO).
+- Verificar que el diseño soporta de manera eficiente las consultas por rango de fechas para evaluar el solapamiento.
+- Asegurar que un contrato queda vinculado correctamente a la `Habitacion` concreta y al `Inquilino` titular.
 
 ##### R.I.04. Registro Unificado de Gastos y Prorrateos
 Como Administrador de la plataforma,
@@ -169,17 +169,100 @@ quiero almacenar los recibos y facturas en un registro único categorizado, junt
 para mantener las cuentas transparentes, auditar los pagos y proteger las fianzas ante reparaciones.
 
 **Pruebas de aceptación:**
-* Verificar que la entidad unificada `Gasto` guarda correctamente el atributo `categoria` (SUMINISTRO o REPARACION) y su `importeTotal`.
-* Comprobar que la entidad intermedia `LiquidacionGasto` persiste el `porcentajeAsignado`, el `importeProrrateado` y su estado (PENDIENTE, PAGADO).
-* Asegurar que la estructura de datos permite recuperar fácilmente el sumatorio de las liquidaciones pendientes de un contrato para calcular posibles bloqueos de morosidad.
-
+- Verificar que la entidad unificada `Gasto` guarda correctamente el atributo `categoria` (SUMINISTRO o REPARACION) y su `importeTotal`.
+- Comprobar que la entidad intermedia `LiquidacionGasto` persiste el `porcentajeAsignado`, el `importeProrrateado` y su estado (PENDIENTE, PAGADO).
+- Asegurar que la estructura de datos permite recuperar fácilmente el sumatorio de las liquidaciones pendientes de un contrato para calcular posibles bloqueos de morosidad.
 
 
 #### 4.1.2. Reglas de negocio
 
-##### R.N.01. Título regla negocio
+##### R.N.01. Lógica temporal del contrato
 
-Descripción de la regla de negocio.
+La fecha de inicio de un contrato debe ser estrictamente anterior a la fecha de fin.
+
+#### R.N.02. Solapamiento temporal
+
+Una misma habitación no puede tener más de un contrato en estado `ACTIVO` o `RESERVADO` para un mismo rango de fechas.
+
+#### R.N.03. Aforo físico exacto
+
+La capacidadTotal (aforo) de una Vivienda debe ser siempre exactamente igual a la suma de las plazas de todas las habitaciones que la componen.
+
+#### R.N.04. Roles mutuamente excluyentes
+
+Un usuario no puede ser Propietario e Inquilino simultáneamente en la plataforma.
+
+#### R.N.05. Mayoría de edad legal
+
+Todo inquilino debe ser mayor de 18 años en el momento del registro del sistema.
+
+#### R.N.06. Filtro ERASMUS
+
+El sistema bloqueará la activación de un contrato si el Inquilino es Erasmus y la Vivienda tiene explícitamente denegada la admisión de estudiantes de intercambio.
+
+#### R.N.07. Filtro género
+
+No se podrá activar un contrao si el género del Inquilino es incompatible con la restricción de convivencia (generoAdmitido) configurada en la Vivienda.
+
+#### R.N.08. Coherencia de origen Erasmus
+
+Si un Inquilino indica marca que es estudiando Erasmus, su Pais de origen asociado no puede ser el país local donde opera la plataforma (ej: España).
+
+#### R.N.09. Avalista obligatorio
+
+Si un Inquilino indica que requiere aval (sin ingresos), el sistema exige registrar y vincular la figura de un Avalista para activar el contrato.
+
+#### R.N.10. Preveción de Auto-Aval
+
+El DNI del Avalista no puede coincidir bajo ninguna circunstancia, con el DNI del Inquilino titular del contrato.
+
+#### R.N.11. Solvencia mínima aval
+
+Los ingresos mensuales declarados por el Avalista deben ser, como mínimo, el triple del precio base mensual de la habitación alquilada.
+
+#### R.N.12. Límite de contratos por Avalista
+
+Un mismo Avalista no puede respaldar simultáneamente a más de tres contratos activos en la plataforma.
+
+#### R.N.13. Límites legales de fianza
+
+El importe de la fianza exigida en un contrato no puede ser inferior a una mensualidad ni superior a tres.
+
+#### R.N.14. Protección de Fianza ante daños
+
+El importe de un gasto categorizaddo como "REPARACIÓN" asignado individualmente a un inquilino no podrá superar nunca el saldo de la fianza depositada.
+
+#### R.N.15. Importes de gasto positivo
+
+El importe total de cualquier gasto registrado en el sistema debe ser estrictamente mayor que cero.
+
+#### R.N.16. Hermetistmo Matemático en prorrateos
+
+La suma de los porcentajes asignados en todas las liquidaciones (deudas individuales) derivadas de un mismo recibo general debe sumar matemáticamente y de forma exacta el 100%.
+
+#### R.N.17. Lógica de fracción
+
+El porcentaje asignado a un inquilino en un recibo compartido debe estar siempre comprendido entre 0 y 100.
+
+#### R.N.18. Distribuición temporal de facturas
+
+Solo se generarán liquidaciones de suministros a aquellos inquilinos cuyo contrato vigente abarque la fecha de emisión del gasto facturado.
+
+#### R.N.19. Bloqueo de finalización por morosidad
+
+El sistema no permitirá cambiar el estado de un contrato a "FINALIZADO" si el inquilino posee alguna liquidación de gasto pendiente de pago.
+
+#### R.N.20. Cronología de Gastos
+
+La fecha de vencimiento y/o fecha de pago de un Gasto no puede ser nunca anterior a su fecha de emisión.
+
+#### R.N.21. Precios estrictamente positivos
+
+El precioBaseMensual de cualquier Habiacion y el precioAlquilerCompleto de la Vivienda deben ser valores numéricos estrictamente mayores que cero.
+
+#### R.N.22. Coherencia espacial para parejas
+
+Si un contrato se formaliza bajo la modalidad de pareja, la Habitación vinculada debe tener obligatoriamente el atributo plazas con valor igual a 2.
 
 ### 4.2. Mapa de historias de usuario (opcional)
 
