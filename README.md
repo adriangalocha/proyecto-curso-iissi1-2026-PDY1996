@@ -85,11 +85,9 @@ para encontrar rápidamente un alojamiento en el que sea aceptado y evitar probl
 
 **Pruebas de aceptación:**
 
-Comprobar que el sistema oculta de los resultados las viviendas donde las preferencias del propietario no coincidan con el perfil del estudiante.
-
-Comprobar que se muestran los resultados ordenados o agrupados según disponibilidad.
-
-Se debe aplicar la regla de negocio R.N.02 (Filtro de Convivencia) al intentar acceder a la vivienda.
+- Comprobar que el sistema oculta de los resultados las viviendas donde las preferencias del propietario no coincidan con el perfil del estudiante.
+- Comprobar que se muestran los resultados ordenados o agrupados según disponibilidad.
+- Se debe aplicar la regla de negocio R.N.02 (Filtro de Convivencia) al intentar acceder a la vivienda.
 
 #### R.F.02. Estado de solvencia de la fianza y liquidaciones pendientes
 Como Administrador de la plataforma
@@ -98,11 +96,9 @@ para llevar un control estricto de los impagos y asegurar que las fianzas cubren
 
 **Pruebas de aceptación:**
 
-Verificar que el sistema muestra el importe total depositado como fianza por cada inquilino.
-
-Verificar que aparece el desglose de todas las liquidaciones en estado "Pendiente de pago" asociadas a ese inquilino.
-
-Se debe aplicar la regla de negocio R.N.03 (Límite de Reparaciones contra Fianza) para alertar si la deuda por reparaciones supera el saldo mostrado en esta consulta.
+- Verificar que el sistema muestra el importe total depositado como fianza por cada inquilino.
+- Verificar que aparece el desglose de todas las liquidaciones en estado "Pendiente de pago" asociadas a ese inquilino.
+- Se debe aplicar la regla de negocio R.N.03 (Límite de Reparaciones contra Fianza) para alertar si la deuda por reparaciones supera el saldo mostrado en esta consulta.
 
 #### R.F.03. Auditoría del reparto de gastos comunes
 Como Administrador de la plataforma
@@ -111,31 +107,29 @@ para auditar la facturación mensual y garantizar que los cobros a los inquilino
 
 **Pruebas de aceptación:**
 
-Comprobar que el sistema identifica correctamente qué contratos estaban en estado "ACTIVO" durante el mes del recibo consultado.
-
-Verificar que se muestra el importe total del recibo y el porcentaje o cuota asignada a cada inquilino de la vivienda.
-
-Se debe aplicar la regla de negocio R.N.05 (Hermetismo Matemático) para garantizar que la vista de auditoría suma exactamente el 100% de los porcentajes repartidos.
+- Comprobar que el sistema identifica correctamente qué contratos estaban en estado "ACTIVO" durante el mes del recibo consultado.
+- Verificar que se muestra el importe total del recibo y el porcentaje o cuota asignada a cada inquilino de la vivienda.
+- Se debe aplicar la regla de negocio R.N.05 (Hermetismo Matemático) para garantizar que la vista de auditoría suma exactamente el 100% de los porcentajes repartidos.
 
 #### R.F.04. Consulta de ocupación y disponibilidad
 Como Propietario,
 quiero visualizar un listado de mis viviendas con el estado actual de cada una de sus habitaciones (Ocupada, Reservada o Disponible),
 para saber qué espacios tengo vacíos y poder ofertarlos a nuevos estudiantes.
 
-**Criterios de aceptación:**
-* Comprobar que el sistema cruza correctamente las habitaciones con los contratos vigentes en la fecha actual.
-* Verificar que se muestra la capacidad total de la vivienda frente a las plazas actualmente ocupadas.
-* Se debe aplicar la regla de negocio R.N.02 (Solapamiento temporal) para garantizar que el cálculo de disponibilidad es exacto y no hay habitaciones con doble contrato activo.
+**Pruebas de aceptación:**
+- Comprobar que el sistema cruza correctamente las habitaciones con los contratos vigentes en la fecha actual.
+- Verificar que se muestra la capacidad total de la vivienda frente a las plazas actualmente ocupadas.
+- Se debe aplicar la regla de negocio R.N.02 (Solapamiento temporal) para garantizar que el cálculo de disponibilidad es exacto y no hay habitaciones con doble contrato activo.
 
 #### R.F.05. Auditoría de contratos avalados
 Como Propietario,
 quiero consultar un listado de los contratos activos vinculados a inquilinos sin ingresos propios, mostrando la información de su Avalista correspondiente,
 para auditar la seguridad financiera de los alquileres y saber a quién reclamar en caso de impago.
 
-**Criterios de aceptación:**
-* Comprobar que el listado filtra y muestra únicamente a los inquilinos que tienen el atributo `requiereAval` en verdadero.
-* Verificar que aparece el nombre, DNI y contacto del Avalista asociado al contrato de dicho estudiante.
-* Se debe aplicar la regla de negocio R.N.09 (Avalista Obligatorio) para asegurar que la información listada es válida y legal.
+**Pruebas de aceptación:**
+- Comprobar que el listado filtra y muestra únicamente a los inquilinos que tienen el atributo `requiereAval` en verdadero.
+- Verificar que aparece el nombre, DNI y contacto del Avalista asociado al contrato de dicho estudiante.
+- Se debe aplicar la regla de negocio R.N.09 (Avalista Obligatorio) para asegurar que la información listada es válida y legal.
 
 #### 4.1.1. Requisitos de información
 
