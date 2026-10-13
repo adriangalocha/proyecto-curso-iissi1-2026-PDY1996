@@ -133,16 +133,47 @@ para auditar la seguridad financiera de los alquileres y saber a quién reclamar
 
 #### 4.1.1. Requisitos de información
 
-##### R.I.01. Título requisito de información
+##### R.I.01. Almacenamiento del perfil del Inquilino y su Avalista
+Como Administrador de la plataforma,
+quiero que el sistema almacene los datos personales detallados de los estudiantes (incluyendo género y si es Erasmus) y los vincule a un Avalista en caso de insolvencia,
+para garantizar la seguridad financiera de los alquileres y poder aplicar los filtros de convivencia.
 
-Como [tipo de usuario]
-quiero [servicio]
-para [razón]
+**Pruebas de aceptación:**
+* Verificar que la base de datos persiste correctamente los atributos obligatorios del Inquilino (`esErasmus`, `genero`, `requiereAval`) y su clave foránea al catálogo `Pais`.
+* Comprobar la restricción de unicidad (UNIQUE) para el DNI del Inquilino y el DNI del Avalista.
+* Verificar que, si se elimina un Inquilino, no se elimine el Avalista si este sigue respaldando a otros estudiantes (integridad referencial).
 
-**Prueba de aceptación**
-- Descripción de la primera comprobación a realizar
-- Descripción de la segunda comprobación a realizar
-- ...
+##### R.I.02. Catálogo de Viviendas y Restricciones de Convivencia
+Como Propietario,
+quiero que el sistema guarde la información estructural de mis inmuebles (aforo legal, habitaciones) junto con mis preferencias de admisión (género, Erasmus, parejas),
+para que la plataforma pueda filtrar automáticamente a los candidatos incompatibles.
+
+**Pruebas de aceptación:**
+* Comprobar que se almacenan correctamente los atributos de control de la entidad Vivienda (`admiteErasmus`, `admiteParejas`, y el enumerado `generoAdmitido`).
+* Verificar que la dirección de la vivienda está protegida por una restricción de unicidad para evitar duplicados.
+* Asegurar la correcta vinculación (Clave Foránea) de la vivienda con el catálogo normalizado de `Ciudad` (3FN).
+
+##### R.I.03. Historial de Contratos Flexibles y Fianzas
+Como Administrador de la plataforma,
+quiero que el sistema registre un historial trazable de los contratos de arrendamiento, incluyendo fechas exactas, el importe de la fianza y el estado actual,
+para mantener un registro legal inmutable de la ocupación de las habitaciones a lo largo de los cursos académicos.
+
+**Pruebas de aceptación:**
+* Comprobar que el contrato persiste los atributos obligatorios: `fechaInicio`, `fechaFin`, `importeFianza` y el `estado` (ACTIVO, RESERVADO, FINALIZADO).
+* Verificar que el diseño soporta de manera eficiente las consultas por rango de fechas para evaluar el solapamiento.
+* Asegurar que un contrato queda vinculado correctamente a la `Habitacion` concreta y al `Inquilino` titular.
+
+##### R.I.04. Registro Unificado de Gastos y Prorrateos
+Como Administrador de la plataforma,
+quiero almacenar los recibos y facturas en un registro único categorizado, junto con el desglose exacto (liquidaciones) de lo que debe pagar cada inquilino,
+para mantener las cuentas transparentes, auditar los pagos y proteger las fianzas ante reparaciones.
+
+**Pruebas de aceptación:**
+* Verificar que la entidad unificada `Gasto` guarda correctamente el atributo `categoria` (SUMINISTRO o REPARACION) y su `importeTotal`.
+* Comprobar que la entidad intermedia `LiquidacionGasto` persiste el `porcentajeAsignado`, el `importeProrrateado` y su estado (PENDIENTE, PAGADO).
+* Asegurar que la estructura de datos permite recuperar fácilmente el sumatorio de las liquidaciones pendientes de un contrato para calcular posibles bloqueos de morosidad.
+
+
 
 #### 4.1.2. Reglas de negocio
 
