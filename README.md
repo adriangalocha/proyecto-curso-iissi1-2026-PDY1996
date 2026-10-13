@@ -117,6 +117,26 @@ Verificar que se muestra el importe total del recibo y el porcentaje o cuota asi
 
 Se debe aplicar la regla de negocio R.N.05 (Hermetismo Matemático) para garantizar que la vista de auditoría suma exactamente el 100% de los porcentajes repartidos.
 
+#### R.F.04. Consulta de ocupación y disponibilidad
+Como Propietario,
+quiero visualizar un listado de mis viviendas con el estado actual de cada una de sus habitaciones (Ocupada, Reservada o Disponible),
+para saber qué espacios tengo vacíos y poder ofertarlos a nuevos estudiantes.
+
+**Criterios de aceptación:**
+* Comprobar que el sistema cruza correctamente las habitaciones con los contratos vigentes en la fecha actual.
+* Verificar que se muestra la capacidad total de la vivienda frente a las plazas actualmente ocupadas.
+* Se debe aplicar la regla de negocio R.N.02 (Solapamiento temporal) para garantizar que el cálculo de disponibilidad es exacto y no hay habitaciones con doble contrato activo.
+
+#### R.F.05. Auditoría de contratos avalados
+Como Propietario,
+quiero consultar un listado de los contratos activos vinculados a inquilinos sin ingresos propios, mostrando la información de su Avalista correspondiente,
+para auditar la seguridad financiera de los alquileres y saber a quién reclamar en caso de impago.
+
+**Criterios de aceptación:**
+* Comprobar que el listado filtra y muestra únicamente a los inquilinos que tienen el atributo `requiereAval` en verdadero.
+* Verificar que aparece el nombre, DNI y contacto del Avalista asociado al contrato de dicho estudiante.
+* Se debe aplicar la regla de negocio R.N.09 (Avalista Obligatorio) para asegurar que la información listada es válida y legal.
+
 #### 4.1.1. Requisitos de información
 
 ##### R.I.01. Título requisito de información
