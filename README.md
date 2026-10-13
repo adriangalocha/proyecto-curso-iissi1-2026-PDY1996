@@ -67,6 +67,14 @@ Así quedaría después de implementar nuestro sistema de gestión.
     - **Administración y control:** Disponer de un panel para que el Administrador supervise las operaciones económicas, valide perfiles y gestione posibles disputas o bloqueos de cuentas.
 
 ### 3.2. Usuarios del sistema
+    - En RoomieHub tendremos los siguientes tipos de usuarios disponibles:En primer lugar, los inquilinos (estudiantes), que cuentan con acceso básico para buscar y reservar habitaciones o viviendas completas, gestionar pagos seguros de fianzas y rentas, y definir sus hábitos de vida y estudio para encontrar compañeros compatibles.
+    
+    - En segundo lugar, los propietarios, encargados de publicar y gestionar sus inmuebles con contratos adaptados al curso académico, tramitar las solicitudes de reserva y registrar los recibos de suministros a repartir.
+
+    - En tercer lugar, los avalistas, usuarios que actúan como garantía de pago vinculados al contrato del inquilino; asumen la obligación económica de responder ante las rentas o suministros pendientes en caso de que el estudiante no pueda afrontarlos. Su vinculación es opcional, ya que no todos los inquilinos requerirán esta figura para formalizar el alquiler.
+    - Por último, el administrador del sistema, responsable de validar la documentación e inmuebles para prevenir estafas, supervisar la custodia de las fianzas y resolver incidencias o disputas entre las partes.
+
+    - Cabe destacar que la condición de estudiante Erasmus no modifica las características ni permisos base del inquilino, salvo por una preferencia opcional: la posibilidad de solicitar ser agrupado prioritariamente, según disponibilidad y estilo de vida, con otros estudiantes de su mismo país de origen.
 
 ## 4. Catálogo de requisitos
 
