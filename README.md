@@ -43,7 +43,10 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ## 2. Glosario de términos
 
-- **Contrato flexible:** Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.   
+- **Contrato flexible:** Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.  
+- **Avalista:** Tercera persona que asume subsidiariamente el pago de las deudas del inquilino.
+- **Liquidación:**** Cálculo y asignación de la parte proporcional de un gasto común (por ejemplo, un recibo de luz) que debe abonar un inquilino específico.
+- **Match Inmobiliario:**** Algoritmo o filtro del sistema que cruza las características de un estudiante (género, condición de Erasmus, etc.) con las preferencias y restricciones configuradas en una vivienda para determinar si son compatibles.
 
 ## 3. Visión general del sistema
 - Dicho sistema web que diseñaremos permitirá que cada tipo de usuario acceda a las funcionalidades según su rol (adminisrador, propietario o inquilino), lo que asegurara la seguridad de los datos de cada uno de ellos, la eficiencia y la calidad de la información.
@@ -69,17 +72,45 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ### 4.1. Requisitos funcionales
 
-#### R.F.01. Título requisito funcional
+#### R.F.01. Match Inmobiliario
 
-Como [tipo de usuario]
-quiero [servicio]
-para [razón]
+Como Inquilino (Estudiante),
+quiero consultar un listado de viviendas y habitaciones disponibles filtradas automáticamente por su compatibilidad con mi perfil (admisión de Erasmus, parejas y restricciones de género),
+para encontrar rápidamente un alojamiento en el que sea aceptado y evitar problemas de convivencia.
 
-**Prueba de aceptación**
-- Descripción de la primera comprobación a realizar
-- Descripción de la segunda comprobación a realizar
-- Se debe aplicar la regla de negocio R.N.XX.
-- ...
+**Pruebas de aceptación:**
+
+Comprobar que el sistema oculta de los resultados las viviendas donde las preferencias del propietario no coincidan con el perfil del estudiante.
+
+Comprobar que se muestran los resultados ordenados o agrupados según disponibilidad.
+
+Se debe aplicar la regla de negocio R.N.02 (Filtro de Convivencia) al intentar acceder a la vivienda.
+
+#### R.F.02. Estado de solvencia de la fianza y liquidaciones pendientes
+Como Administrador de la plataforma
+quiero consultar el estado de solvencia de la fianza y obtener un listado de liquidaciones pendientes (deudas) agrupadas por inquilino
+para llevar un control estricto de los impagos y asegurar que las fianzas cubren las posibles deudas.
+
+**Pruebas de aceptación:**
+
+Verificar que el sistema muestra el importe total depositado como fianza por cada inquilino.
+
+Verificar que aparece el desglose de todas las liquidaciones en estado "Pendiente de pago" asociadas a ese inquilino.
+
+Se debe aplicar la regla de negocio R.N.03 (Límite de Reparaciones contra Fianza) para alertar si la deuda por reparaciones supera el saldo mostrado en esta consulta.
+
+#### R.F.03. Auditoría del reparto de gastos comunes
+Como Administrador de la plataforma
+quiero consultar el reparto matemático exacto de gastos comunes (suministros) entre los contratos activos
+para auditar la facturación mensual y garantizar que los cobros a los inquilinos son correctos y justos.
+
+**Pruebas de aceptación:**
+
+Comprobar que el sistema identifica correctamente qué contratos estaban en estado "ACTIVO" durante el mes del recibo consultado.
+
+Verificar que se muestra el importe total del recibo y el porcentaje o cuota asignada a cada inquilino de la vivienda.
+
+Se debe aplicar la regla de negocio R.N.05 (Hermetismo Matemático) para garantizar que la vista de auditoría suma exactamente el 100% de los porcentajes repartidos.
 
 #### 4.1.1. Requisitos de información
 
