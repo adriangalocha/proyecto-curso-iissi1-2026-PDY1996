@@ -10,10 +10,11 @@
 ## 1. Introducción al problema
 
 - El proyecto "RoomieHub" consiste en el desarrollo de un sistema de información diseñado específicamente para la gestión de alquiler de habitaciones, viviendas completas y la organización de la convivencia para estudiantes. La plataforma busca actuar como intermediario y facilitador entre personas que disponen de inmuebles y estudiantes que necesitan alojamiento durante su curso académico.
-- En el sistema tenemos tres tipos de usurarios:
+- En el sistema tenemos cuatro tipos de usurarios:
     - Inquilino (Estudiantes): Buscan alojamiento. Tienen la flexibilidad de alquilar una habitación en un piso compartido o, si vienen en grupo, una vivienda completa.
     - Propietario: Dueños o gestores de sus inmuebles que publican sus viviendas o habitaciones disponibles.
     - Administrador del sistema: Personal encargado de mantener la plataforma.
+    - Avalista: Se encargará de llevar a cabo los avales de dinero para los inquilinos.
 - Actualmente, la búsqueda de alojamiento para estudiantes y la posterior gestión se realiza de forma caótica. Se utilizan plataformas genéricas, grupos de redes sociales o el tradicional "boca a boca", lo que genera varios problemas:
     - Falta de confianza y seguridad, ya que abundan las estafas con los pagos de las fianzas y reservas por adelantado.
     - Incompatibilidad de perfiles, ya que al alquilar habitaciones sueltas, los estudiantes suelen acabar viviendo con desconocidos sin saber si sus hábitos de estudio o estilo de vida son compatibles, lo que genera problemas de convivencia.
