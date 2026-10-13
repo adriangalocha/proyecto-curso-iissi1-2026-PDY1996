@@ -1,6 +1,6 @@
 # Sistema de Gestión de Alquiler de Habitaciones y Convivencia para Estudiantes (RoomieHub)
 
-## Miembros del grupo L1-Grupo 4
+## Miembros del grupo L1-DF-AM-4
 
 1. Nolasco Calderón, Ángel
 1. Al Khyat, Khaled
@@ -42,14 +42,24 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ## 2. Glosario de términos
 
-- Términos específicos del dominio del problema, ordenados alfabéticamente. Se valorará la presencia de información multimedia.
-
 -**Contrato flexible:** Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.   
 
 ## 3. Visión general del sistema
 - Dicho sistema web que diseñaremos permitirá que cada tipo de usuario acceda a las funcionalidades según su rol (adminisrador, propietario o inquilino), lo que asegurara la seguridad de los datos de cada uno de ellos, la eficiencia y la calidad de la información.
 ### 3.1. Requisitos generales
+El sistema RoomieHub debe proporcionar las siguientes funcionalidades principales para automatizar la gestión de alquileres y convivencia:
 
+    - **Gestión de usuarios:** Permitir el registro, autenticación y edición de perfiles para los tres roles de la plataforma, incluyendo la validación de la condición de estudiante universitario para los inquilinos.
+
+    - **Gestión de inmuebles:** Facilitar a los propietarios la creación, modificación y eliminación de anuncios de viviendas completas o habitaciones individuales, detallando precio, características, disponibilidad y normas básicas.
+
+    - **Búsqueda y filtrado:** Proporcionar a los estudiantes un buscador de alojamientos con filtros por tipo de alquiler (habitación o piso completo), precio máximo y fechas de entrada/salida.
+
+    - **Gestión de reservas y contratos:** Habilitar la solicitud de alquiler y la generación de contratos flexibles adaptados a los meses del curso académico, estableciendo la relación entre los inquilinos y el inmueble.
+
+    - **Gestión económica:** Integrar el procesamiento del cobro de la fianza a prontopago para bloquear la reserva, así como el registro de los pagos mensuales de las rentas.
+
+    - **Administración y control:** Disponer de un panel para que el Administrador supervise las operaciones económicas, valide perfiles y gestione posibles disputas o bloqueos de cuentas.
 ### 3.2. Usuarios del sistema
 
 ## 4. Catálogo de requisitos
