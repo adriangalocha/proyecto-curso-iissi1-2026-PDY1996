@@ -41,17 +41,56 @@ Así quedaría después de implementar nuestro sistema de gestión.
 - **Contrato flexible:** Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.  
 
 ## 3. Visión general del sistema
+
 ### 3.1. Requisitos generales
 
-- **Gestión de usuarios:** Permitir el registro, autenticación y edición de perfiles para los tres roles de la plataforma, incluyendo la validación de la condición de estudiante universitario para los inquilinos.
+#### R.G.01. Gestión de Usuario
 
-- **Gestión de inmuebles:** Facilitar a los propietarios la creación, modificación y eliminación de anuncios de viviendas completas o habitaciones individuales, detallando precio, características, disponibilidad y normas básicas.
+El sistema debe permitir registrar, modificar, consultar y eliminar la información básica y credenciales de acceso de cualquier usuario de la plataforma, actuando como base común para los distintos roles.
 
-- **Gestión de reservas:** Habilitar la solicitud de alquiler y la generación de contratos flexibles adaptados a los meses del curso académico, estableciendo la relación entre los inquilinos y el inmueble.
+#### R.G.02. Gestión de Propietario
 
-- Gestión de contratos
+El sistema debe permitir gestionar la información específica de los usuarios con rol de propietario, incluyendo sus datos de contacto adicionales, cuenta bancaria para ingresos y el estado de validación de su identidad.
 
-- **Gestión de pagos:** Integrar el procesamiento del cobro de la fianza a prontopago para bloquear la reserva, así como el registro de los pagos mensuales de las rentas.
+#### R.G.03. Gestión de Inquilino
+
+El sistema debe permitir gestionar la información específica de los estudiantes (inquilinos), incluyendo su perfil personal, preferencias de convivencia, estado de solvencia y la verificación de su matrícula académica.
+
+#### R.G.04. Gestión de País
+
+El sistema debe permitir mantener un catálogo con la información de los distintos países (nombre y código) para identificar la nacionalidad u origen de los estudiantes y avalistas.
+
+#### R.G.05. Gestión de Universidad
+
+El sistema debe permitir registrar y consultar la información de las instituciones académicas (nombre, siglas y ubicación) a las que pertenecen los inquilinos.
+
+#### R.G.06. Gestión de Avalista
+
+El sistema debe permitir el registro, modificación y consulta de los datos personales y de contacto de los avalistas, así como la información necesaria para respaldar financieramente a un inquilino.
+
+#### R.G.07. Gestión de Contrato
+
+El sistema debe permitir registrar, consultar, actualizar y cancelar la información relativa a los acuerdos de alquiler, almacenando las fechas de inicio y fin, la fianza depositada, el estado actual y las partes vinculadas.
+
+#### R.G.08. Gestión de Habitación
+
+El sistema debe permitir gestionar la información detallada de cada habitación individual dentro de un inmueble, incluyendo su identificador, precio mensual, disponibilidad, dimensiones y características.
+
+#### R.G.09. Gestión de Vivienda
+
+El sistema debe permitir registrar y administrar los datos generales de los inmuebles completos, tales como su dirección postal, aforo máximo, normas de convivencia y las preferencias sobre el perfil de los inquilinos.
+
+#### R.G.10. Gestión de Ciudad
+
+El sistema debe permitir mantener un catálogo de ciudades (nombre y código postal) para estructurar correctamente la ubicación geográfica de las viviendas y las universidades.
+
+#### R.G.11. Gestión de Gasto
+
+El sistema debe permitir registrar, consultar y modificar la información de las facturas o recibos comunes de una vivienda (tipo de suministro como luz o agua, importe total, fecha de emisión y estado).
+
+#### R.G.12. Gestión de Liquidación
+
+El sistema debe permitir generar y gestionar la información de la deuda individual asignada a un inquilino, registrando el importe exacto o porcentaje que le corresponde pagar derivado de un gasto común, así como su estado de pago.
 
 ### 3.2. Usuarios del sistema
 - Inquilinos (estudiantes), que cuentan con acceso básico para buscar y reservar habitaciones o viviendas completas, gestionar pagos seguros de fianzas y rentas, y definir sus hábitos de vida y estudio para encontrar compañeros compatibles.
@@ -162,63 +201,51 @@ para mantener las cuentas transparentes, auditar los pagos y proteger las fianza
 
 #### 4.1.2. Reglas de negocio
 
-#### R.N.02. Solapamiento temporal
+#### R.N.01. Solapamiento temporal
 
 Una misma habitación no puede tener más de un contrato en estado ACTIVO o RESERVADO para un mismo rango de fechas.
 
-#### R.N.03. Aforo físico exacto
+#### R.N.02. Aforo físico exacto
 
 La capacidadTotal (aforo) de una Vivienda debe ser siempre exactamente igual a la suma de las plazas de todas las habitaciones que la componen.
 
-#### R.N.06. Filtro ERASMUS y género
+#### R.N.03. Filtro ERASMUS y género
 
 El sistema admite ERASMUS. El sistema admite HOMBRE. El sistema admite MUJER.
 
-#### R.N.09. Avalista obligatorio
+#### R.N.04. Avalista obligatorio
 
 El sistema impide crear el contrato si la suma de los ingresos y los avales no supera lo establecido en el contrato.
 
-#### R.N.10. Preveción de Auto-Aval
+#### R.N.05. Preveción de Auto-Aval
 
 El DNI del Avalista no puede coincidir bajo ninguna circunstancia, con el DNI del Inquilino titular del contrato.
 
-#### R.N.11. Solvencia mínima aval
+#### R.N.06. Solvencia mínima aval
 
 Los ingresos mensuales declarados por el Avalista deben ser, como mínimo, el triple del precio base mensual de la habitación alquilada.
 
-#### R.N.12. Límite de contratos por Avalista
+#### R.N.07. Límite de contratos por Avalista
 
 Un mismo Avalista no puede respaldar simultáneamente a más de tres contratos activos en la plataforma.
 
-#### R.N.13. Límites legales de fianza
+#### R.N.08. Límites legales de fianza
 
 El importe de la fianza exigida en un contrato no puede ser inferior a una mensualidad ni superior a tres.
 
-#### R.N.15. Importes de gasto positivo
-
-El importe total de cualquier gasto registrado en el sistema debe ser estrictamente mayor que cero.
-
-#### R.N.16. Hermetistmo Matemático en prorrateos
+#### R.N.9. Hermetistmo Matemático en prorrateos
 
 La suma de los porcentajes asignados en todas las liquidaciones (deudas individuales) derivadas de un mismo recibo general debe sumar matemáticamente y de forma exacta el 100%.
 
-#### R.N.17. Lógica de fracción
-
-El porcentaje asignado a un inquilino en un recibo compartido debe estar siempre comprendido entre 0 y 100.
-
-#### R.N.19. Bloqueo de finalización por morosidad
+#### R.N.10. Bloqueo de finalización por morosidad
 
 El sistema no permitirá cambiar el estado de un contrato a "FINALIZADO" si el inquilino posee alguna liquidación de gasto pendiente de pago.
 
-#### R.N.20. Cronología de Gastos
+#### R.N.11. Cronología de Gastos
 
 La fecha de vencimiento y/o fecha de pago de un Gasto no puede ser nunca anterior a su fecha de emisión.
 
-#### R.N.21. Precios estrictamente positivos
-
-El precioBaseMensual de cualquier Habitacion y el precioAlquilerCompleto de la Vivienda deben ser valores numéricos estrictamente mayores que cero.
-
-#### R.N.22. Coherencia espacial para parejas
+#### R.N.12. Coherencia espacial para parejas
 
 Si un contrato se formaliza bajo la modalidad de pareja, la Habitación vinculada debe tener obligatoriamente el atributo plazas con valor igual a 2.
 
