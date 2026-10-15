@@ -202,7 +202,7 @@ El sistema bloqueará la activación de un contrato si el Inquilino es Erasmus y
 
 #### R.N.07. Filtro género
 
-No se podrá activar un contrao si el género del Inquilino es incompatible con la restricción de convivencia (generoAdmitido) configurada en la Vivienda.
+No se podrá activar un contrato si el género del Inquilino es incompatible con la restricción de convivencia (generoAdmitido) configurada en la Vivienda.
 
 #### R.N.08. Coherencia de origen Erasmus
 
@@ -230,7 +230,7 @@ El importe de la fianza exigida en un contrato no puede ser inferior a una mensu
 
 #### R.N.14. Protección de Fianza ante daños
 
-El importe de un gasto categorizaddo como "REPARACIÓN" asignado individualmente a un inquilino no podrá superar nunca el saldo de la fianza depositada.
+El importe de un gasto categorizado como "REPARACIÓN" asignado individualmente a un inquilino no podrá superar nunca el saldo de la fianza depositada.
 
 #### R.N.15. Importes de gasto positivo
 
@@ -258,7 +258,7 @@ La fecha de vencimiento y/o fecha de pago de un Gasto no puede ser nunca anterio
 
 #### R.N.21. Precios estrictamente positivos
 
-El precioBaseMensual de cualquier Habiacion y el precioAlquilerCompleto de la Vivienda deben ser valores numéricos estrictamente mayores que cero.
+El precioBaseMensual de cualquier Habitacion y el precioAlquilerCompleto de la Vivienda deben ser valores numéricos estrictamente mayores que cero.
 
 #### R.N.22. Coherencia espacial para parejas
 
