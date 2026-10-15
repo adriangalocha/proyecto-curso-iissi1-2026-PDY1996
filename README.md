@@ -10,11 +10,6 @@
 ## 1. Introducción al problema
 
 - El proyecto "RoomieHub" consiste en el desarrollo de un sistema de información diseñado específicamente para la gestión de alquiler de habitaciones, viviendas completas y la organización de la convivencia para estudiantes. La plataforma busca actuar como intermediario y facilitador entre personas que disponen de inmuebles y estudiantes que necesitan alojamiento durante su curso académico.
-- En el sistema tenemos cuatro tipos de usurarios:
-    - Inquilino (Estudiantes): Buscan alojamiento. Tienen la flexibilidad de alquilar una habitación en un piso compartido o, si vienen en grupo, una vivienda completa.
-    - Propietario: Dueños o gestores de sus inmuebles que publican sus viviendas o habitaciones disponibles.
-    - Administrador del sistema: Personal encargado de mantener la plataforma.
-    - Avalista: Se encargará de llevar a cabo los avales de dinero para los inquilinos.
 - Actualmente, la búsqueda de alojamiento para estudiantes y la posterior gestión se realiza de forma caótica. Se utilizan plataformas genéricas, grupos de redes sociales o el tradicional "boca a boca", lo que genera varios problemas:
     - Falta de confianza y seguridad, ya que abundan las estafas con los pagos de las fianzas y reservas por adelantado.
     - Incompatibilidad de perfiles, ya que al alquilar habitaciones sueltas, los estudiantes suelen acabar viviendo con desconocidos sin saber si sus hábitos de estudio o estilo de vida son compatibles, lo que genera problemas de convivencia.
@@ -44,34 +39,25 @@ Así quedaría después de implementar nuestro sistema de gestión.
 ## 2. Glosario de términos
 
 - **Contrato flexible:** Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.  
-- **Avalista:** Tercera persona que asume subsidiariamente el pago de las deudas del inquilino.
-- **Liquidación:** Cálculo y asignación de la parte proporcional de un gasto común (por ejemplo, un recibo de luz) que debe abonar un inquilino específico.
-- **Match Inmobiliario:** Algoritmo o filtro del sistema que cruza las características de un estudiante (género, condición de Erasmus, etc.) con las preferencias y restricciones configuradas en una vivienda para determinar si son compatibles.
 
 ## 3. Visión general del sistema
-- Dicho sistema web que diseñaremos permitirá que cada tipo de usuario acceda a las funcionalidades según su rol (adminisrador, propietario o inquilino), lo que asegurara la seguridad de los datos de cada uno de ellos, la eficiencia y la calidad de la información.
 ### 3.1. Requisitos generales
 
-- El sistema RoomieHub debe proporcionar las siguientes funcionalidades principales para automatizar la gestión de alquileres y convivencia:
+- **Gestión de usuarios:** Permitir el registro, autenticación y edición de perfiles para los tres roles de la plataforma, incluyendo la validación de la condición de estudiante universitario para los inquilinos.
 
-    - **Gestión de usuarios:** Permitir el registro, autenticación y edición de perfiles para los tres roles de la plataforma, incluyendo la validación de la condición de estudiante universitario para los inquilinos.
+- **Gestión de inmuebles:** Facilitar a los propietarios la creación, modificación y eliminación de anuncios de viviendas completas o habitaciones individuales, detallando precio, características, disponibilidad y normas básicas.
 
-    - **Gestión de inmuebles:** Facilitar a los propietarios la creación, modificación y eliminación de anuncios de viviendas completas o habitaciones individuales, detallando precio, características, disponibilidad y normas básicas.
+- **Gestión de reservas:** Habilitar la solicitud de alquiler y la generación de contratos flexibles adaptados a los meses del curso académico, estableciendo la relación entre los inquilinos y el inmueble.
 
-    - **Búsqueda y filtrado:** Proporcionar a los estudiantes un buscador de alojamientos con filtros por tipo de alquiler (habitación o piso completo), precio máximo y fechas de entrada/salida.
+- Gestión de contratos
 
-    - **Gestión de reservas y contratos:** Habilitar la solicitud de alquiler y la generación de contratos flexibles adaptados a los meses del curso académico, estableciendo la relación entre los inquilinos y el inmueble.
-
-    - **Gestión económica:** Integrar el procesamiento del cobro de la fianza a prontopago para bloquear la reserva, así como el registro de los pagos mensuales de las rentas.
-
-    - **Administración y control:** Disponer de un panel para que el Administrador supervise las operaciones económicas, valide perfiles y gestione posibles disputas o bloqueos de cuentas.
+- **Gestión de pagos:** Integrar el procesamiento del cobro de la fianza a prontopago para bloquear la reserva, así como el registro de los pagos mensuales de las rentas.
 
 ### 3.2. Usuarios del sistema
-- En RoomieHub tendremos los siguientes tipos de usuarios disponibles:En primer lugar, los inquilinos (estudiantes), que cuentan con acceso básico para buscar y reservar habitaciones o viviendas completas, gestionar pagos seguros de fianzas y rentas, y definir sus hábitos de vida y estudio para encontrar compañeros compatibles.
-- En segundo lugar, los propietarios, encargados de publicar y gestionar sus inmuebles con contratos adaptados al curso académico, tramitar las solicitudes de reserva y registrar los recibos de suministros a repartir.
-- En tercer lugar, los avalistas, usuarios que actúan como garantía de pago vinculados al contrato del inquilino; asumen la obligación económica de responder ante las rentas o suministros pendientes en caso de que el estudiante no pueda afrontarlos. Su vinculación es opcional, ya que no todos los inquilinos requerirán esta figura para formalizar el alquiler.
-- Por último, el administrador del sistema, responsable de validar la documentación e inmuebles para prevenir estafas, supervisar la custodia de las fianzas y resolver incidencias o disputas entre las partes.
-- Cabe destacar que la condición de estudiante Erasmus no modifica las características ni permisos base del inquilino, salvo por una preferencia opcional: la posibilidad de solicitar ser agrupado prioritariamente, según disponibilidad y estilo de vida, con otros estudiantes de su mismo país de origen.
+- Inquilinos (estudiantes), que cuentan con acceso básico para buscar y reservar habitaciones o viviendas completas, gestionar pagos seguros de fianzas y rentas, y definir sus hábitos de vida y estudio para encontrar compañeros compatibles.
+- Propietarios, encargados de publicar y gestionar sus inmuebles con contratos adaptados al curso académico, tramitar las solicitudes de reserva y registrar los recibos de suministros a repartir.
+- Avalistas, usuarios que actúan como garantía de pago vinculados al contrato del inquilino; asumen la obligación económica de responder ante las rentas o suministros pendientes en caso de que el estudiante no pueda afrontarlos. Su vinculación es opcional, ya que no todos los inquilinos requerirán esta figura para formalizar el alquiler.
+- Administrador, responsable de validar la documentación e inmuebles para prevenir estafas, supervisar la custodia de las fianzas y resolver incidencias o disputas entre las partes.
 
 ## 4. Catálogo de requisitos
 
@@ -176,10 +162,6 @@ para mantener las cuentas transparentes, auditar los pagos y proteger las fianza
 
 #### 4.1.2. Reglas de negocio
 
-##### R.N.01. Lógica temporal del contrato
-
-La fecha de inicio de un contrato debe ser estrictamente anterior a la fecha de fin.
-
 #### R.N.02. Solapamiento temporal
 
 Una misma habitación no puede tener más de un contrato en estado ACTIVO o RESERVADO para un mismo rango de fechas.
@@ -188,29 +170,13 @@ Una misma habitación no puede tener más de un contrato en estado ACTIVO o RESE
 
 La capacidadTotal (aforo) de una Vivienda debe ser siempre exactamente igual a la suma de las plazas de todas las habitaciones que la componen.
 
-#### R.N.04. Roles mutuamente excluyentes
+#### R.N.06. Filtro ERASMUS y género
 
-Un usuario no puede ser Propietario e Inquilino simultáneamente en la plataforma.
-
-#### R.N.05. Mayoría de edad legal
-
-Todo inquilino debe ser mayor de 18 años en el momento del registro del sistema.
-
-#### R.N.06. Filtro ERASMUS
-
-El sistema bloqueará la activación de un contrato si el Inquilino es Erasmus y la Vivienda tiene explícitamente denegada la admisión de estudiantes de intercambio.
-
-#### R.N.07. Filtro género
-
-No se podrá activar un contrato si el género del Inquilino es incompatible con la restricción de convivencia (generoAdmitido) configurada en la Vivienda.
-
-#### R.N.08. Coherencia de origen Erasmus
-
-Si un Inquilino indica marca que es estudiando Erasmus, su Pais de origen asociado no puede ser el país local donde opera la plataforma (ej: España).
+El sistema admite ERASMUS. El sistema admite HOMBRE. El sistema admite MUJER.
 
 #### R.N.09. Avalista obligatorio
 
-Si un Inquilino indica que requiere aval (sin ingresos), el sistema exige registrar y vincular la figura de un Avalista para activar el contrato.
+El sistema impide crear el contrato si la suma de los ingresos y los avales no supera lo establecido en el contrato.
 
 #### R.N.10. Preveción de Auto-Aval
 
@@ -228,10 +194,6 @@ Un mismo Avalista no puede respaldar simultáneamente a más de tres contratos a
 
 El importe de la fianza exigida en un contrato no puede ser inferior a una mensualidad ni superior a tres.
 
-#### R.N.14. Protección de Fianza ante daños
-
-El importe de un gasto categorizado como "REPARACIÓN" asignado individualmente a un inquilino no podrá superar nunca el saldo de la fianza depositada.
-
 #### R.N.15. Importes de gasto positivo
 
 El importe total de cualquier gasto registrado en el sistema debe ser estrictamente mayor que cero.
@@ -243,10 +205,6 @@ La suma de los porcentajes asignados en todas las liquidaciones (deudas individu
 #### R.N.17. Lógica de fracción
 
 El porcentaje asignado a un inquilino en un recibo compartido debe estar siempre comprendido entre 0 y 100.
-
-#### R.N.18. Distribuición temporal de facturas
-
-Solo se generarán liquidaciones de suministros a aquellos inquilinos cuyo contrato vigente abarque la fecha de emisión del gasto facturado.
 
 #### R.N.19. Bloqueo de finalización por morosidad
 
