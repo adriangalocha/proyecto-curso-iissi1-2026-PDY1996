@@ -127,7 +127,7 @@ quiero consultar un listado de los contratos activos vinculados a inquilinos sin
 para auditar la seguridad financiera de los alquileres y saber a quién reclamar en caso de impago.
 
 **Pruebas de aceptación:**
-- Comprobar que el listado filtra y muestra únicamente a los inquilinos que tienen el atributo `requiereAval` en verdadero.
+- Comprobar que el listado filtra y muestra únicamente a los inquilinos que tienen el atributo requiereAval en verdadero.
 - Verificar que aparece el nombre, DNI y contacto del Avalista asociado al contrato de dicho estudiante.
 - Se debe aplicar la regla de negocio R.N.09 (Avalista Obligatorio) para asegurar que la información listada es válida y legal.
 
