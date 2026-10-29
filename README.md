@@ -10,6 +10,11 @@
 ## 1. Introducción al problema
 
 - El proyecto "RoomieHub" consiste en el desarrollo de un sistema de información diseñado específicamente para la gestión de alquiler de habitaciones, viviendas completas y la organización de la convivencia para estudiantes. La plataforma busca actuar como intermediario y facilitador entre personas que disponen de inmuebles y estudiantes que necesitan alojamiento durante su curso académico.
+- En el sistema tenemos cuatro tipos de usurarios:
+    - Inquilino (Estudiantes): Buscan alojamiento. Tienen la flexibilidad de alquilar una habitación en un piso compartido o, si vienen en grupo, una vivienda completa.
+    - Propietario: Dueños o gestores de sus inmuebles que publican sus viviendas o habitaciones disponibles.
+    - Administrador del sistema: Personal encargado de mantener la plataforma.
+    - Avalista: Se encargará de llevar a cabo los avales de dinero para los inquilinos.
 - Actualmente, la búsqueda de alojamiento para estudiantes y la posterior gestión se realiza de forma caótica. Se utilizan plataformas genéricas, grupos de redes sociales o el tradicional "boca a boca", lo que genera varios problemas:
     - Falta de confianza y seguridad, ya que abundan las estafas con los pagos de las fianzas y reservas por adelantado.
     - Incompatibilidad de perfiles, ya que al alquilar habitaciones sueltas, los estudiantes suelen acabar viviendo con desconocidos sin saber si sus hábitos de estudio o estilo de vida son compatibles, lo que genera problemas de convivencia.
@@ -39,215 +44,258 @@ Así quedaría después de implementar nuestro sistema de gestión.
 ## 2. Glosario de términos
 
 - **Contrato flexible:** Acuerdo de arrendamiento adaptado al calendario académico de los estudiantes (por ejemplo, de 9 o 10 meses), a diferencia de los contratos inmobiliarios tradicionales de un año de duración.  
+- **Avalista:** Tercera persona que asume subsidiariamente el pago de las deudas del inquilino.
+- **Liquidación:** Cálculo y asignación de la parte proporcional de un gasto común (por ejemplo, un recibo de luz) que debe abonar un inquilino específico.
+- **Match Inmobiliario:** Algoritmo o filtro del sistema que cruza las características de un estudiante (género, condición de Erasmus, etc.) con las preferencias y restricciones configuradas en una vivienda para determinar si son compatibles.
 
 ## 3. Visión general del sistema
-
+- Dicho sistema web que diseñaremos permitirá que cada tipo de usuario acceda a las funcionalidades según su rol (adminisrador, propietario o inquilino), lo que asegurara la seguridad de los datos de cada uno de ellos, la eficiencia y la calidad de la información.
 ### 3.1. Requisitos generales
 
-#### R.G.01. Gestión de Usuario
+- El sistema RoomieHub debe proporcionar las siguientes funcionalidades principales para automatizar la gestión de alquileres y convivencia:
 
-El sistema debe permitir registrar, modificar, consultar y eliminar la información básica y credenciales de acceso de cualquier usuario de la plataforma, actuando como base común para los distintos roles.
+    - **Gestión de usuarios:** Permitir el registro, autenticación y edición de perfiles para los tres roles de la plataforma, incluyendo la validación de la condición de estudiante universitario para los inquilinos.
 
-#### R.G.02. Gestión de Propietario
+    - **Gestión de inmuebles:** Facilitar a los propietarios la creación, modificación y eliminación de anuncios de viviendas completas o habitaciones individuales, detallando precio, características, disponibilidad y normas básicas.
 
-El sistema debe permitir gestionar la información específica de los usuarios con rol de propietario, incluyendo sus datos de contacto adicionales, cuenta bancaria para ingresos y el estado de validación de su identidad.
+    - **Búsqueda y filtrado:** Proporcionar a los estudiantes un buscador de alojamientos con filtros por tipo de alquiler (habitación o piso completo), precio máximo y fechas de entrada/salida.
 
-#### R.G.03. Gestión de Inquilino
+    - **Gestión de reservas y contratos:** Habilitar la solicitud de alquiler y la generación de contratos flexibles adaptados a los meses del curso académico, estableciendo la relación entre los inquilinos y el inmueble.
 
-El sistema debe permitir gestionar la información específica de los estudiantes (inquilinos), incluyendo su perfil personal, preferencias de convivencia, estado de solvencia y la verificación de su matrícula académica.
+    - **Gestión económica:** Integrar el procesamiento del cobro de la fianza a prontopago para bloquear la reserva, así como el registro de los pagos mensuales de las rentas.
 
-#### R.G.04. Gestión de País
-
-El sistema debe permitir mantener un catálogo con la información de los distintos países (nombre y código) para identificar la nacionalidad u origen de los estudiantes y avalistas.
-
-#### R.G.05. Gestión de Universidad
-
-El sistema debe permitir registrar y consultar la información de las instituciones académicas (nombre, siglas y ubicación) a las que pertenecen los inquilinos.
-
-#### R.G.06. Gestión de Avalista
-
-El sistema debe permitir el registro, modificación y consulta de los datos personales y de contacto de los avalistas, así como la información necesaria para respaldar financieramente a un inquilino.
-
-#### R.G.07. Gestión de Contrato
-
-El sistema debe permitir registrar, consultar, actualizar y cancelar la información relativa a los acuerdos de alquiler, almacenando las fechas de inicio y fin, la fianza depositada, el estado actual y las partes vinculadas.
-
-#### R.G.08. Gestión de Habitación
-
-El sistema debe permitir gestionar la información detallada de cada habitación individual dentro de un inmueble, incluyendo su identificador, precio mensual, disponibilidad, dimensiones y características.
-
-#### R.G.09. Gestión de Vivienda
-
-El sistema debe permitir registrar y administrar los datos generales de los inmuebles completos, tales como su dirección postal, aforo máximo, normas de convivencia y las preferencias sobre el perfil de los inquilinos.
-
-#### R.G.10. Gestión de Ciudad
-
-El sistema debe permitir mantener un catálogo de ciudades (nombre y código postal) para estructurar correctamente la ubicación geográfica de las viviendas y las universidades.
-
-#### R.G.11. Gestión de Gasto
-
-El sistema debe permitir registrar, consultar y modificar la información de las facturas o recibos comunes de una vivienda (tipo de suministro como luz o agua, importe total, fecha de emisión y estado).
-
-#### R.G.12. Gestión de Liquidación
-
-El sistema debe permitir generar y gestionar la información de la deuda individual asignada a un inquilino, registrando el importe exacto o porcentaje que le corresponde pagar derivado de un gasto común, así como su estado de pago.
+    - **Administración y control:** Disponer de un panel para que el Administrador supervise las operaciones económicas, valide perfiles y gestione posibles disputas o bloqueos de cuentas.
 
 ### 3.2. Usuarios del sistema
-- Inquilinos (estudiantes), que cuentan con acceso básico para buscar y reservar habitaciones o viviendas completas, gestionar pagos seguros de fianzas y rentas, y definir sus hábitos de vida y estudio para encontrar compañeros compatibles.
-- Propietarios, encargados de publicar y gestionar sus inmuebles con contratos adaptados al curso académico, tramitar las solicitudes de reserva y registrar los recibos de suministros a repartir.
-- Avalistas, usuarios que actúan como garantía de pago vinculados al contrato del inquilino; asumen la obligación económica de responder ante las rentas o suministros pendientes en caso de que el estudiante no pueda afrontarlos. Su vinculación es opcional, ya que no todos los inquilinos requerirán esta figura para formalizar el alquiler.
-- Administrador, responsable de validar la documentación e inmuebles para prevenir estafas, supervisar la custodia de las fianzas y resolver incidencias o disputas entre las partes.
+- En RoomieHub tendremos los siguientes tipos de usuarios disponibles:En primer lugar, los inquilinos (estudiantes), que cuentan con acceso básico para buscar y reservar habitaciones o viviendas completas, gestionar pagos seguros de fianzas y rentas, y definir sus hábitos de vida y estudio para encontrar compañeros compatibles.
+- En segundo lugar, los propietarios, encargados de publicar y gestionar sus inmuebles con contratos adaptados al curso académico, tramitar las solicitudes de reserva y registrar los recibos de suministros a repartir.
+- En tercer lugar, los avalistas, usuarios que actúan como garantía de pago vinculados al contrato del inquilino; asumen la obligación económica de responder ante las rentas o suministros pendientes en caso de que el estudiante no pueda afrontarlos. Su vinculación es opcional, ya que no todos los inquilinos requerirán esta figura para formalizar el alquiler.
+- Por último, el administrador del sistema, responsable de validar la documentación e inmuebles para prevenir estafas, supervisar la custodia de las fianzas y resolver incidencias o disputas entre las partes.
+- Cabe destacar que la condición de estudiante Erasmus no modifica las características ni permisos base del inquilino, salvo por una preferencia opcional: la posibilidad de solicitar ser agrupado prioritariamente, según disponibilidad y estilo de vida, con otros estudiantes de su mismo país de origen.
 
-## 4. Catálogo de requisitos
+### 4.1. Catálogo de Requisitos Funcionales
 
-### 4.1. Requisitos funcionales
+#### R.G.01. Gestión de Usuario
+* **R.F.01.01 [CREATE] Alta de Usuario:** Como usuario quiero registrar mis credenciales y datos básicos para acceder a la plataforma.  
+  *Prueba de aceptación:* Validar formato de datos y rechazar email/DNI duplicados. Aplica `R.N.01`.
+* **R.F.01.02 [READ] Consulta de Usuario:** Como usuario autenticado quiero ver mis datos de perfil para verificar mi información.  
+  *Prueba de aceptación:* Mostrar datos personales ocultando contraseñas/datos sensibles. Aplica `R.N.02`.
+* **R.F.01.03 [EDIT] Modificación de Usuario:** Como usuario quiero actualizar mi contacto o contraseña para mantener mis credenciales al día.  
+  *Prueba de aceptación:* Exigir contraseña actual para cambios y revalidar nuevo email. Aplica `R.N.01`.
+* **R.F.01.04 [DELETE] Baja de Usuario:** Como usuario quiero darme de baja para cesar mi cuenta en el sistema.  
+  *Prueba de aceptación:* Aplicar baja lógica; bloquearla si existen contratos o pagos pendientes. Aplica `R.N.03`.
 
-#### R.F.01. Match Inmobiliario
+---
 
-Como Inquilino (Estudiante),
-quiero consultar un listado de viviendas y habitaciones disponibles filtradas automáticamente por su compatibilidad con mi perfil (admisión de Erasmus, parejas y restricciones de género),
-para encontrar rápidamente un alojamiento en el que sea aceptado y evitar problemas de convivencia.
+#### R.G.02. Gestión de Propietario
+* **R.F.02.01 [CREATE] Alta de Propietario:** Como propietario quiero registrar mi IBAN y acreditación para habilitar cobros e inmuebles.  
+  *Prueba de aceptación:* Validar formato bancario y dejar estado en `PENDIENTE`. Aplica `R.N.04`.
+* **R.F.02.02 [READ] Consulta de Propietario:** Como propietario quiero consultar el estado de mi validación para saber si puedo operar.  
+  *Prueba de aceptación:* Visualizar estado de acreditación e IBAN enmascarado. Aplica `R.N.05`.
+* **R.F.02.03 [EDIT] Modificación de Propietario:** Como propietario quiero cambiar mi IBAN o teléfono para actualizar mis vías de cobro.  
+  *Prueba de aceptación:* Revalidar titularidad ante cambios; impedir IBAN vacío con contratos vigentes. Aplica `R.N.04`.
+* **R.F.02.04 [DELETE] Baja de Propietario:** Como propietario quiero revocar mi rol para dejar de ofertar inmuebles.  
+  *Prueba de aceptación:* Bloquear baja si hay anuncios activos o contratos vigentes; desactivar inmuebles libres. Aplica `R.N.03`.
 
-**Pruebas de aceptación:**
+---
 
-- Comprobar que el sistema oculta de los resultados las viviendas donde las preferencias del propietario no coincidan con el perfil del estudiante.
-- Comprobar que se muestran los resultados ordenados o agrupados según disponibilidad.
-- Se debe aplicar la regla de negocio R.N.02 (Filtro de Convivencia) al intentar acceder a la vivienda.
+#### R.G.03. Gestión de Inquilino
+* **R.F.03.01 [CREATE] Alta de Inquilino:** Como estudiante quiero registrar mi matrícula, hábitos y opción Erasmus para optar a alquileres.  
+  *Prueba de aceptación:* Exigir matrícula; si `esErasmus = True`, requerir país y preferencia de compatibilidad. Aplica `R.N.06` y `R.N.07`.
+* **R.F.03.02 [READ] Consulta de Inquilino:** Como inquilino quiero ver mis hábitos y validación académica para revisar mi perfil público.  
+  *Prueba de aceptación:* Comprobar visibilidad de hábitos ante propietarios sin exponer documentos privados. Aplica `R.N.08`.
+* **R.F.03.03 [EDIT] Modificación de Inquilino:** Como inquilino quiero modificar mis preferencias de convivencia o Erasmus para ajustar afinidades.  
+  *Prueba de aceptación:* Actualizar criterios de convivencia; al desmarcar Erasmus, limpiar país y prioridad. Aplica `R.N.07`.
+* **R.F.03.04 [DELETE] Baja de Inquilino:** Como inquilino quiero eliminar mi perfil para cesar la búsqueda de alojamiento.  
+  *Prueba de aceptación:* Impedir baja si existe contrato activo; cancelar solicitudes de reserva pendientes. Aplica `R.N.03`.
 
-#### R.F.02. Estado de solvencia de la fianza y liquidaciones pendientes
-Como Administrador de la plataforma
-quiero consultar el estado de solvencia de la fianza y obtener un listado de liquidaciones pendientes (deudas) agrupadas por inquilino
-para llevar un control estricto de los impagos y asegurar que las fianzas cubren las posibles deudas.
+---
 
-**Pruebas de aceptación:**
+#### R.G.04. Gestión de País
+* **R.F.04.01 [CREATE] Alta de País:** Como administrador quiero registrar un país con código ISO para estandarizar el catálogo.  
+  *Prueba de aceptación:* Validar código ISO único y campos no vacíos. Aplica `R.N.09`.
+* **R.F.04.02 [READ] Consulta de Países:** Como usuario quiero listar países para indicar mi procedencia o nacionalidad.  
+  *Prueba de aceptación:* Mostrar catálogo ordenado alfabéticamente con filtro por código o nombre. Aplica `R.N.09`.
+* **R.F.04.03 [EDIT] Modificación de País:** Como administrador quiero corregir el nombre de un país para subsanar erratas.  
+  *Prueba de aceptación:* Actualizar texto manteniendo invariable el código ISO y las relaciones existentes. Aplica `R.N.09`.
+* **R.F.04.04 [DELETE] Baja de País:** Como administrador quiero eliminar un país obsoleto para depurar el catálogo.  
+  *Prueba de aceptación:* Bloquear borrado si existen usuarios, avalistas o universidades asociadas. Aplica `R.N.10`.
 
-- Verificar que el sistema muestra el importe total depositado como fianza por cada inquilino.
-- Verificar que aparece el desglose de todas las liquidaciones en estado "Pendiente de pago" asociadas a ese inquilino.
-- Se debe aplicar la regla de negocio R.N.03 (Límite de Reparaciones contra Fianza) para alertar si la deuda por reparaciones supera el saldo mostrado en esta consulta.
+---
 
-#### R.F.03. Auditoría del reparto de gastos comunes
-Como Administrador de la plataforma
-quiero consultar el reparto matemático exacto de gastos comunes (suministros) entre los contratos activos
-para auditar la facturación mensual y garantizar que los cobros a los inquilinos son correctos y justos.
+#### R.G.05. Gestión de Universidad
+* **R.F.05.01 [CREATE] Alta de Universidad:** Como administrador quiero añadir una universidad con nombre, siglas y ciudad para asociarla a estudiantes.  
+  *Prueba de aceptación:* Validar nombre único por ciudad y existencia de la ciudad vinculada. Aplica `R.N.11`.
+* **R.F.05.02 [READ] Consulta de Universidades:** Como estudiante quiero buscar universidades para vincular mi centro al perfil.  
+  *Prueba de aceptación:* Permitir filtrado por ciudad o siglas con datos completos de adscripción. Aplica `R.N.11`.
+* **R.F.05.03 [EDIT] Modificación de Universidad:** Como administrador quiero actualizar datos de una universidad para mantener exactitud.  
+  *Prueba de aceptación:* Reflejar cambios en perfiles asociados verificando la validez de la nueva ciudad. Aplica `R.N.11`.
+* **R.F.05.04 [DELETE] Baja de Universidad:** Como administrador quiero retirar una universidad para eliminar entidades inactivas.  
+  *Prueba de aceptación:* Denegar eliminación si tiene inquilinos vinculados; permitir solo con cero referencias. Aplica `R.N.10`.
 
-**Pruebas de aceptación:**
+---
 
-- Comprobar que el sistema identifica correctamente qué contratos estaban en estado "ACTIVO" durante el mes del recibo consultado.
-- Verificar que se muestra el importe total del recibo y el porcentaje o cuota asignada a cada inquilino de la vivienda.
-- Se debe aplicar la regla de negocio R.N.05 (Hermetismo Matemático) para garantizar que la vista de auditoría suma exactamente el 100% de los porcentajes repartidos.
+#### R.G.06. Gestión de Avalista
+* **R.F.06.01 [CREATE] Alta de Avalista:** Como inquilino quiero vincular un avalista para satisfacer requisitos de solvencia.  
+  *Prueba de aceptación:* Comprobar DNI distinto al inquilino y dejarlo en `PENDIENTE_CONFIRMACION`. Aplica `R.N.12`.
+* **R.F.06.02 [READ] Consulta de Avalista:** Como parte contractual quiero consultar datos del avalista para constatar el respaldo económico.  
+  *Prueba de aceptación:* Restringir acceso solo a propietarios vinculados y mostrar estado de ratificación. Aplica `R.N.12`.
+* **R.F.06.03 [EDIT] Modificación de Avalista:** Como avalista quiero actualizar mis datos de contacto para recibir notificaciones y cobros.  
+  *Prueba de aceptación:* Validar nuevos datos; bloquear cambio de documento de identidad en contratos vigentes. Aplica `R.N.01`.
+* **R.F.06.04 [DELETE] Baja de Avalista:** Como inquilino quiero desvincular un avalista para sustituirlo o retirarlo tras finalizar contrato.  
+  *Prueba de aceptación:* Impedir baja si respalda un contrato en vigor que exige aval; permitir solo si hay sustituto o contrato extinto. Aplica `R.N.13`.
 
-#### R.F.04. Consulta de ocupación y disponibilidad
-Como Propietario,
-quiero visualizar un listado de mis viviendas con el estado actual de cada una de sus habitaciones (Ocupada, Reservada o Disponible),
-para saber qué espacios tengo vacíos y poder ofertarlos a nuevos estudiantes.
+---
 
-**Pruebas de aceptación:**
-- Comprobar que el sistema cruza correctamente las habitaciones con los contratos vigentes en la fecha actual.
-- Verificar que se muestra la capacidad total de la vivienda frente a las plazas actualmente ocupadas.
-- Se debe aplicar la regla de negocio R.N.02 (Solapamiento temporal) para garantizar que el cálculo de disponibilidad es exacto y no hay habitaciones con doble contrato activo.
+#### R.G.07. Gestión de Contrato
+* **R.F.07.01 [CREATE] Alta de Contrato:** Como propietario quiero registrar un acuerdo de alquiler para formalizar la estancia.  
+  *Prueba de aceptación:* Validar `fechaFin > fechaInicio` y exigir firma del avalista si es requerido antes de pasar a `ACTIVO`. Aplica `R.N.14` y `R.N.15`.
+* **R.F.07.02 [READ] Consulta de Contrato:** Como parte involucrada quiero revisar cláusulas, importes y estado del contrato para verificar condiciones.  
+  *Prueba de aceptación:* Limitar lectura a inquilino, propietario y avalista asignados. Aplica `R.N.16`.
+* **R.F.07.03 [EDIT] Modificación de Contrato:** Como propietario quiero prorrogar fechas o ajustar condiciones con acuerdo de partes.  
+  *Prueba de aceptación:* Verificar ausencia de solapamiento en prórrogas y requerir aceptación de inquilino/aval. Aplica `R.N.14`.
+* **R.F.07.04 [DELETE] Rescisión de Contrato:** Como propietario o administrador quiero cancelar un contrato para registrar su extinción formal.  
+  *Prueba de aceptación:* Cambiar estado a `RESCINDIDO` manteniendo registro histórico sin borrado físico. Aplica `R.N.17`.
 
-#### R.F.05. Auditoría de contratos avalados
-Como Propietario,
-quiero consultar un listado de los contratos activos vinculados a inquilinos sin ingresos propios, mostrando la información de su Avalista correspondiente,
-para auditar la seguridad financiera de los alquileres y saber a quién reclamar en caso de impago.
+---
 
-**Pruebas de aceptación:**
-- Comprobar que el listado filtra y muestra únicamente a los inquilinos que tienen el atributo requiereAval en verdadero.
-- Verificar que aparece el nombre, DNI y contacto del Avalista asociado al contrato de dicho estudiante.
-- Se debe aplicar la regla de negocio R.N.09 (Avalista Obligatorio) para asegurar que la información listada es válida y legal.
+#### R.G.08. Gestión de Habitación
+* **R.F.08.01 [CREATE] Alta de Habitación:** Como propietario quiero registrar una habitación para ofrecerla individualmente.  
+  *Prueba de aceptación:* Validar identificador único dentro de la vivienda y precio mensual $> 0$. Aplica `R.N.18`.
+* **R.F.08.02 [READ] Consulta de Habitaciones:** Como inquilino quiero ver detalles, fotos y disponibilidad de habitaciones para elegir estancia.  
+  *Prueba de aceptación:* Mostrar estado de ocupación según calendario y características detalladas. Aplica `R.N.18`.
+* **R.F.08.03 [EDIT] Modificación de Habitación:** Como propietario quiero cambiar equipamiento o precio para actualizar la oferta.  
+  *Prueba de aceptación:* Aplicar nuevo precio solo a contrataciones futuras sin alterar contratos vigentes. Aplica `R.N.19`.
+* **R.F.08.04 [DELETE] Baja de Habitación:** Como propietario quiero eliminar una habitación para retirarla de comercialización.  
+  *Prueba de aceptación:* Denegar baja si tiene contratos activos o reservas; actualizar cómputo de plazas. Aplica `R.N.20`.
 
-#### 4.1.1. Requisitos de información
+---
 
-##### R.I.01. Almacenamiento del perfil del Inquilino y su Avalista
-Como Administrador de la plataforma,
-quiero que el sistema almacene los datos personales detallados de los estudiantes (incluyendo género y si es Erasmus) y los vincule a un Avalista en caso de insolvencia,
-para garantizar la seguridad financiera de los alquileres y poder aplicar los filtros de convivencia.
+#### R.G.09. Gestión de Vivienda
+* **R.F.09.01 [CREATE] Alta de Vivienda:** Como propietario quiero registrar un inmueble completo para su oferta integral o compartida.  
+  *Prueba de aceptación:* Validar aforo $\ge 1$ y dirección vinculada a ciudad existente. Aplica `R.N.21`.
+* **R.F.09.02 [READ] Consulta de Viviendas:** Como inquilino quiero buscar viviendas por filtros de ubicación, aforo y normas para hallar opciones.  
+  *Prueba de aceptación:* Mostrar resultados coincidentes solo para inmuebles con titularidad validada. Aplica `R.N.05`.
+* **R.F.09.03 [EDIT] Modificación de Vivienda:** Como propietario quiero ajustar normas o descripción para mantener actualizado el anuncio.  
+  *Prueba de aceptación:* Impedir fijar un aforo inferior al número de inquilinos actuales. Aplica `R.N.21`.
+* **R.F.09.04 [DELETE] Baja de Vivienda:** Como propietario quiero retirar un inmueble para cesar su arrendamiento.  
+  *Prueba de aceptación:* Bloquear si cuenta con contratos o habitaciones vigentes; ejecutar baja lógica. Aplica `R.N.20`.
 
-**Pruebas de aceptación:**
-- Verificar que la base de datos persiste correctamente los atributos obligatorios del Inquilino esErasmus, genero, requiereAval y su clave foránea al catálogo Pais.
-- Comprobar la restricción de unicidad (UNIQUE) para el DNI del Inquilino y el DNI del Avalista.
-- Verificar que, si se elimina un Inquilino, no se elimine el Avalista si este sigue respaldando a otros estudiantes (integridad referencial).
+---
 
-##### R.I.02. Catálogo de Viviendas y Restricciones de Convivencia
-Como Propietario,
-quiero que el sistema guarde la información estructural de mis inmuebles (aforo legal, habitaciones) junto con mis preferencias de admisión (género, Erasmus, parejas),
-para que la plataforma pueda filtrar automáticamente a los candidatos incompatibles.
+#### R.G.10. Gestión de Ciudad
+* **R.F.10.01 [CREATE] Alta de Ciudad:** Como administrador quiero añadir una ciudad y código postal para ampliar áreas operativas.  
+  *Prueba de aceptación:* Validar formato de CP según país y unicidad de la tupla (nombre, CP). Aplica `R.N.22`.
+* **R.F.10.02 [READ] Consulta de Ciudades:** Como usuario quiero buscar ciudades para ubicar inmuebles o universidades.  
+  *Prueba de aceptación:* Permitir búsqueda predictiva y desplegar listado vinculado a país. Aplica `R.N.09`.
+* **R.F.10.03 [EDIT] Modificación de Ciudad:** Como administrador quiero corregir nombre o formato postal para subsanar errores.  
+  *Prueba de aceptación:* Preservar relaciones con viviendas y universidades tras la actualización. Aplica `R.N.22`.
+* **R.F.10.04 [DELETE] Baja de Ciudad:** Como administrador quiero eliminar una ciudad registrada por error para depurar datos.  
+  *Prueba de aceptación:* Bloquear borrado si existen viviendas o universidades vinculadas. Aplica `R.N.10`.
 
-**Pruebas de aceptación:**
-- Comprobar que se almacenan correctamente los atributos de control de la entidad Vivienda admiteErasmus, admiteParejas, y el enumerado generoAdmitido.
-- Verificar que la dirección de la vivienda está protegida por una restricción de unicidad para evitar duplicados.
-- Asegurar la correcta vinculación (Clave Foránea) de la vivienda con el catálogo normalizado de Ciudad (3FN).
+---
 
-##### R.I.03. Historial de Contratos Flexibles y Fianzas
-Como Administrador de la plataforma,
-quiero que el sistema registre un historial trazable de los contratos de arrendamiento, incluyendo fechas exactas, el importe de la fianza y el estado actual,
-para mantener un registro legal inmutable de la ocupación de las habitaciones a lo largo de los cursos académicos.
-
-**Pruebas de aceptación:**
-- Comprobar que el contrato persiste los atributos obligatorios: fechaInicio, fechaFin, importeFianza y el estado (ACTIVO, RESERVADO, FINALIZADO).
-- Verificar que el diseño soporta de manera eficiente las consultas por rango de fechas para evaluar el solapamiento.
-- Asegurar que un contrato queda vinculado correctamente a la Habitacion concreta y al Inquilino titular.
-
-##### R.I.04. Registro Unificado de Gastos y Prorrateos
-Como Administrador de la plataforma,
-quiero almacenar los recibos y facturas en un registro único categorizado, junto con el desglose exacto (liquidaciones) de lo que debe pagar cada inquilino,
-para mantener las cuentas transparentes, auditar los pagos y proteger las fianzas ante reparaciones.
-
-**Pruebas de aceptación:**
-- Verificar que la entidad unificada Gasto guarda correctamente el atributo categoria (SUMINISTRO o REPARACION) y su importeTotal.
-- Comprobar que la entidad intermedia LiquidacionGasto persiste el porcentajeAsignado, el importeProrrateado y su estado (PENDIENTE, PAGADO).
-- Asegurar que la estructura de datos permite recuperar fácilmente el sumatorio de las liquidaciones pendientes de un contrato para calcular posibles bloqueos de morosidad.
+#### R.G.11. Gestión de Gasto
+* **R.F.11.01 [CREATE] Alta de Gasto:** Como propietario quiero registrar facturas de suministros para repercutirlas a los inquilinos.  
+  *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica `R.N.23`.
+* **R.F.11.02 [READ] Consulta de Gastos:** Como usuario vinculado quiero revisar
 
 
 #### 4.1.2. Reglas de negocio
 
-#### R.N.01. Solapamiento temporal
+##### R.N.01. Lógica temporal del contrato
+
+La fecha de inicio de un contrato debe ser estrictamente anterior a la fecha de fin.
+
+#### R.N.02. Solapamiento temporal
 
 Una misma habitación no puede tener más de un contrato en estado ACTIVO o RESERVADO para un mismo rango de fechas.
 
-#### R.N.02. Aforo físico exacto
+#### R.N.03. Aforo físico exacto
 
 La capacidadTotal (aforo) de una Vivienda debe ser siempre exactamente igual a la suma de las plazas de todas las habitaciones que la componen.
 
-#### R.N.03. Filtro ERASMUS y género
+#### R.N.04. Roles mutuamente excluyentes
 
-El sistema admite ERASMUS. El sistema admite HOMBRE. El sistema admite MUJER.
+Un usuario no puede ser Propietario e Inquilino simultáneamente en la plataforma.
 
-#### R.N.04. Avalista obligatorio
+#### R.N.05. Mayoría de edad legal
 
-El sistema impide crear el contrato si la suma de los ingresos y los avales no supera lo establecido en el contrato.
+Todo inquilino debe ser mayor de 18 años en el momento del registro del sistema.
 
-#### R.N.05. Preveción de Auto-Aval
+#### R.N.06. Filtro ERASMUS
+
+El sistema bloqueará la activación de un contrato si el Inquilino es Erasmus y la Vivienda tiene explícitamente denegada la admisión de estudiantes de intercambio.
+
+#### R.N.07. Filtro género
+
+No se podrá activar un contrato si el género del Inquilino es incompatible con la restricción de convivencia (generoAdmitido) configurada en la Vivienda.
+
+#### R.N.08. Coherencia de origen Erasmus
+
+Si un Inquilino indica marca que es estudiando Erasmus, su Pais de origen asociado no puede ser el país local donde opera la plataforma (ej: España).
+
+#### R.N.09. Avalista obligatorio
+
+Si un Inquilino indica que requiere aval (sin ingresos), el sistema exige registrar y vincular la figura de un Avalista para activar el contrato.
+
+#### R.N.10. Preveción de Auto-Aval
 
 El DNI del Avalista no puede coincidir bajo ninguna circunstancia, con el DNI del Inquilino titular del contrato.
 
-#### R.N.06. Solvencia mínima aval
+#### R.N.11. Solvencia mínima aval
 
 Los ingresos mensuales declarados por el Avalista deben ser, como mínimo, el triple del precio base mensual de la habitación alquilada.
 
-#### R.N.07. Límite de contratos por Avalista
+#### R.N.12. Límite de contratos por Avalista
 
 Un mismo Avalista no puede respaldar simultáneamente a más de tres contratos activos en la plataforma.
 
-#### R.N.08. Límites legales de fianza
+#### R.N.13. Límites legales de fianza
 
 El importe de la fianza exigida en un contrato no puede ser inferior a una mensualidad ni superior a tres.
 
-#### R.N.9. Hermetistmo Matemático en prorrateos
+#### R.N.14. Protección de Fianza ante daños
+
+El importe de un gasto categorizado como "REPARACIÓN" asignado individualmente a un inquilino no podrá superar nunca el saldo de la fianza depositada.
+
+#### R.N.15. Importes de gasto positivo
+
+El importe total de cualquier gasto registrado en el sistema debe ser estrictamente mayor que cero.
+
+#### R.N.16. Hermetistmo Matemático en prorrateos
 
 La suma de los porcentajes asignados en todas las liquidaciones (deudas individuales) derivadas de un mismo recibo general debe sumar matemáticamente y de forma exacta el 100%.
 
-#### R.N.10. Bloqueo de finalización por morosidad
+#### R.N.17. Lógica de fracción
+
+El porcentaje asignado a un inquilino en un recibo compartido debe estar siempre comprendido entre 0 y 100.
+
+#### R.N.18. Distribuición temporal de facturas
+
+Solo se generarán liquidaciones de suministros a aquellos inquilinos cuyo contrato vigente abarque la fecha de emisión del gasto facturado.
+
+#### R.N.19. Bloqueo de finalización por morosidad
 
 El sistema no permitirá cambiar el estado de un contrato a "FINALIZADO" si el inquilino posee alguna liquidación de gasto pendiente de pago.
 
-#### R.N.11. Cronología de Gastos
+#### R.N.20. Cronología de Gastos
 
 La fecha de vencimiento y/o fecha de pago de un Gasto no puede ser nunca anterior a su fecha de emisión.
 
-#### R.N.12. Coherencia espacial para parejas
+#### R.N.21. Precios estrictamente positivos
+
+El precioBaseMensual de cualquier Habitacion y el precioAlquilerCompleto de la Vivienda deben ser valores numéricos estrictamente mayores que cero.
+
+#### R.N.22. Coherencia espacial para parejas
 
 Si un contrato se formaliza bajo la modalidad de pareja, la Habitación vinculada debe tener obligatoriamente el atributo plazas con valor igual a 2.
+
+#### R.N.23. Requisito aval/nomina
+Un inquilino puede tener una nomina, en el caso de no tenerla se requerira aval.
+
+#### R.N.24. Aval obligatorio
+El propietario puede indicar que una vivienda requiere aval obligatorio (independientemente de la nomina).
 
 ### 4.2. Mapa de historias de usuario (opcional)
 
