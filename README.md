@@ -193,11 +193,28 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-##### R.G.11. Gestión de Gasto
+#### R.G.11. Gestión de Gasto
 * **R.F.11.01 [CREATE] Alta de Gasto:** Como propietario quiero registrar facturas de suministros para repercutirlas a los inquilinos.  
-  *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica R.N.23.
-* **R.F.11.02 [READ] Consulta de Gastos:** Como usuario vinculado quiero revisar
+  *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica `R.N.23`.
+* **R.F.11.02 [READ] Consulta de Gastos:** Como usuario vinculado quiero revisar el histórico de recibos para verificar consumos.  
+  *Prueba de aceptación:* Restringir consulta a inquilinos con contrato vigente en las fechas del gasto. Aplica `R.N.24`.
+* **R.F.11.03 [EDIT] Modificación de Gasto:** Como propietario quiero corregir el importe de una factura para subsanar discrepancias.  
+  *Prueba de aceptación:* Recalcular liquidaciones pendientes; bloquear edición si ya existen cuotas cobradas. Aplica `R.N.25`.
+* **R.F.11.04 [DELETE] Anulación de Gasto:** Como propietario quiero anular una factura errónea para cancelar cobros asociados.  
+  *Prueba de aceptación:* Impedir anulación si hay pagos registrados; suprimir liquidaciones pendientes si no hay cobros. Aplica `R.N.25`.
 
+---
+
+#### R.G.12. Gestión de Liquidación
+* **R.F.12.01 [CREATE] Alta de Liquidación:** Como sistema quiero generar la deuda individual por inquilino a partir de un gasto común.  
+  *Prueba de aceptación:* Validar que la suma de partes cuadre el 100% del gasto y fijar estado `PENDIENTE`. Aplica `R.N.26`.
+* **R.F.12.02 [READ] Consulta de Liquidación:** Como inquilino o avalista quiero consultar cuotas e histórico para gestionar pagos.  
+  *Prueba de aceptación:* Mostrar desglose al inquilino y dar visibilidad al avalista ante mora. Aplica `R.N.27`.
+* **R.F.12.03 [EDIT] Modificación de Estado (Pago):** Como sistema quiero actualizar la liquidación a pagada tras confirmar el cobro.  
+  *Prueba de aceptación:* Registrar fecha y referencia de pago; ante mora vencida, derivar orden de cobro al avalista. Aplica `R.N.28`.
+* **R.F.12.04 [DELETE] Cancelación de Liquidación:** Como sistema o administrador quiero anular una liquidación errónea para emitir corrección.  
+  *Prueba de aceptación:* Bloquear si figura en estado `PAGADA` y reajustar saldos del inquilino y gasto. Aplica `R.N.25`.
+  
 
 #### 4.1.2. Reglas de negocio
 
