@@ -75,127 +75,127 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ##### R.G.01. Gestión de Usuario
 * **R.F.01.01 [CREATE] Alta de Usuario:** Como usuario quiero registrar mis credenciales y datos básicos para acceder a la plataforma.  
-  *Prueba de aceptación:* Validar formato de datos y rechazar email/DNI duplicados. Aplica `R.N.01`.
+  *Prueba de aceptación:* Validar formato de datos y rechazar email/DNI duplicados. Aplica R.N.01.
 * **R.F.01.02 [READ] Consulta de Usuario:** Como usuario autenticado quiero ver mis datos de perfil para verificar mi información.  
-  *Prueba de aceptación:* Mostrar datos personales ocultando contraseñas/datos sensibles. Aplica `R.N.02`.
+  *Prueba de aceptación:* Mostrar datos personales ocultando contraseñas/datos sensibles. Aplica R.N.02.
 * **R.F.01.03 [EDIT] Modificación de Usuario:** Como usuario quiero actualizar mi contacto o contraseña para mantener mis credenciales al día.  
-  *Prueba de aceptación:* Exigir contraseña actual para cambios y revalidar nuevo email. Aplica `R.N.01`.
+  *Prueba de aceptación:* Exigir contraseña actual para cambios y revalidar nuevo email. Aplica R.N.01.
 * **R.F.01.04 [DELETE] Baja de Usuario:** Como usuario quiero darme de baja para cesar mi cuenta en el sistema.  
-  *Prueba de aceptación:* Aplicar baja lógica; bloquearla si existen contratos o pagos pendientes. Aplica `R.N.03`.
+  *Prueba de aceptación:* Aplicar baja lógica; bloquearla si existen contratos o pagos pendientes. Aplica R.N.03.
 
 ---
 
 ##### R.G.02. Gestión de Propietario
 * **R.F.02.01 [CREATE] Alta de Propietario:** Como propietario quiero registrar mi IBAN y acreditación para habilitar cobros e inmuebles.  
-  *Prueba de aceptación:* Validar formato bancario y dejar estado en `PENDIENTE`. Aplica `R.N.04`.
+  *Prueba de aceptación:* Validar formato bancario y dejar estado en PENDIENTE. Aplica R.N.04.
 * **R.F.02.02 [READ] Consulta de Propietario:** Como propietario quiero consultar el estado de mi validación para saber si puedo operar.  
-  *Prueba de aceptación:* Visualizar estado de acreditación e IBAN enmascarado. Aplica `R.N.05`.
+  *Prueba de aceptación:* Visualizar estado de acreditación e IBAN enmascarado. Aplica R.N.05.
 * **R.F.02.03 [EDIT] Modificación de Propietario:** Como propietario quiero cambiar mi IBAN o teléfono para actualizar mis vías de cobro.  
-  *Prueba de aceptación:* Revalidar titularidad ante cambios; impedir IBAN vacío con contratos vigentes. Aplica `R.N.04`.
+  *Prueba de aceptación:* Revalidar titularidad ante cambios; impedir IBAN vacío con contratos vigentes. Aplica R.N.04.
 * **R.F.02.04 [DELETE] Baja de Propietario:** Como propietario quiero revocar mi rol para dejar de ofertar inmuebles.  
-  *Prueba de aceptación:* Bloquear baja si hay anuncios activos o contratos vigentes; desactivar inmuebles libres. Aplica `R.N.03`.
+  *Prueba de aceptación:* Bloquear baja si hay anuncios activos o contratos vigentes; desactivar inmuebles libres. Aplica R.N.03.
 
 ---
 
 ##### R.G.03. Gestión de Inquilino
 * **R.F.03.01 [CREATE] Alta de Inquilino:** Como estudiante quiero registrar mi matrícula, hábitos y opción Erasmus para optar a alquileres.  
-  *Prueba de aceptación:* Exigir matrícula; si `esErasmus = True`, requerir país y preferencia de compatibilidad. Aplica `R.N.06` y `R.N.07`.
+  *Prueba de aceptación:* Exigir matrícula; si esErasmus = True, requerir país y preferencia de compatibilidad. Aplica R.N.06 y R.N.07.
 * **R.F.03.02 [READ] Consulta de Inquilino:** Como inquilino quiero ver mis hábitos y validación académica para revisar mi perfil público.  
-  *Prueba de aceptación:* Comprobar visibilidad de hábitos ante propietarios sin exponer documentos privados. Aplica `R.N.08`.
+  *Prueba de aceptación:* Comprobar visibilidad de hábitos ante propietarios sin exponer documentos privados. Aplica R.N.08.
 * **R.F.03.03 [EDIT] Modificación de Inquilino:** Como inquilino quiero modificar mis preferencias de convivencia o Erasmus para ajustar afinidades.  
-  *Prueba de aceptación:* Actualizar criterios de convivencia; al desmarcar Erasmus, limpiar país y prioridad. Aplica `R.N.07`.
+  *Prueba de aceptación:* Actualizar criterios de convivencia; al desmarcar Erasmus, limpiar país y prioridad. Aplica R.N.07.
 * **R.F.03.04 [DELETE] Baja de Inquilino:** Como inquilino quiero eliminar mi perfil para cesar la búsqueda de alojamiento.  
-  *Prueba de aceptación:* Impedir baja si existe contrato activo; cancelar solicitudes de reserva pendientes. Aplica `R.N.03`.
+  *Prueba de aceptación:* Impedir baja si existe contrato activo; cancelar solicitudes de reserva pendientes. Aplica R.N.03.
 
 ---
 
 ##### R.G.04. Gestión de País
 * **R.F.04.01 [CREATE] Alta de País:** Como administrador quiero registrar un país con código ISO para estandarizar el catálogo.  
-  *Prueba de aceptación:* Validar código ISO único y campos no vacíos. Aplica `R.N.09`.
+  *Prueba de aceptación:* Validar código ISO único y campos no vacíos. Aplica R.N.09.
 * **R.F.04.02 [READ] Consulta de Países:** Como usuario quiero listar países para indicar mi procedencia o nacionalidad.  
-  *Prueba de aceptación:* Mostrar catálogo ordenado alfabéticamente con filtro por código o nombre. Aplica `R.N.09`.
+  *Prueba de aceptación:* Mostrar catálogo ordenado alfabéticamente con filtro por código o nombre. Aplica R.N.09.
 * **R.F.04.03 [EDIT] Modificación de País:** Como administrador quiero corregir el nombre de un país para subsanar erratas.  
-  *Prueba de aceptación:* Actualizar texto manteniendo invariable el código ISO y las relaciones existentes. Aplica `R.N.09`.
+  *Prueba de aceptación:* Actualizar texto manteniendo invariable el código ISO y las relaciones existentes. Aplica R.N.09.
 * **R.F.04.04 [DELETE] Baja de País:** Como administrador quiero eliminar un país obsoleto para depurar el catálogo.  
-  *Prueba de aceptación:* Bloquear borrado si existen usuarios, avalistas o universidades asociadas. Aplica `R.N.10`.
+  *Prueba de aceptación:* Bloquear borrado si existen usuarios, avalistas o universidades asociadas. Aplica R.N.10.
 
 ---
 
 ##### R.G.05. Gestión de Universidad
 * **R.F.05.01 [CREATE] Alta de Universidad:** Como administrador quiero añadir una universidad con nombre, siglas y ciudad para asociarla a estudiantes.  
-  *Prueba de aceptación:* Validar nombre único por ciudad y existencia de la ciudad vinculada. Aplica `R.N.11`.
+  *Prueba de aceptación:* Validar nombre único por ciudad y existencia de la ciudad vinculada. Aplica R.N.11.
 * **R.F.05.02 [READ] Consulta de Universidades:** Como estudiante quiero buscar universidades para vincular mi centro al perfil.  
-  *Prueba de aceptación:* Permitir filtrado por ciudad o siglas con datos completos de adscripción. Aplica `R.N.11`.
+  *Prueba de aceptación:* Permitir filtrado por ciudad o siglas con datos completos de adscripción. Aplica R.N.11.
 * **R.F.05.03 [EDIT] Modificación de Universidad:** Como administrador quiero actualizar datos de una universidad para mantener exactitud.  
-  *Prueba de aceptación:* Reflejar cambios en perfiles asociados verificando la validez de la nueva ciudad. Aplica `R.N.11`.
+  *Prueba de aceptación:* Reflejar cambios en perfiles asociados verificando la validez de la nueva ciudad. Aplica R.N.11.
 * **R.F.05.04 [DELETE] Baja de Universidad:** Como administrador quiero retirar una universidad para eliminar entidades inactivas.  
-  *Prueba de aceptación:* Denegar eliminación si tiene inquilinos vinculados; permitir solo con cero referencias. Aplica `R.N.10`.
+  *Prueba de aceptación:* Denegar eliminación si tiene inquilinos vinculados; permitir solo con cero referencias. Aplica R.N.10.
 
 ---
 
 ##### R.G.06. Gestión de Avalista
 * **R.F.06.01 [CREATE] Alta de Avalista:** Como inquilino quiero vincular un avalista para satisfacer requisitos de solvencia.  
-  *Prueba de aceptación:* Comprobar DNI distinto al inquilino y dejarlo en `PENDIENTE_CONFIRMACION`. Aplica `R.N.12`.
+  *Prueba de aceptación:* Comprobar DNI distinto al inquilino y dejarlo en PENDIENTE_CONFIRMACION. Aplica R.N.12.
 * **R.F.06.02 [READ] Consulta de Avalista:** Como parte contractual quiero consultar datos del avalista para constatar el respaldo económico.  
-  *Prueba de aceptación:* Restringir acceso solo a propietarios vinculados y mostrar estado de ratificación. Aplica `R.N.12`.
+  *Prueba de aceptación:* Restringir acceso solo a propietarios vinculados y mostrar estado de ratificación. Aplica R.N.12.
 * **R.F.06.03 [EDIT] Modificación de Avalista:** Como avalista quiero actualizar mis datos de contacto para recibir notificaciones y cobros.  
-  *Prueba de aceptación:* Validar nuevos datos; bloquear cambio de documento de identidad en contratos vigentes. Aplica `R.N.01`.
+  *Prueba de aceptación:* Validar nuevos datos; bloquear cambio de documento de identidad en contratos vigentes. Aplica R.N.01.
 * **R.F.06.04 [DELETE] Baja de Avalista:** Como inquilino quiero desvincular un avalista para sustituirlo o retirarlo tras finalizar contrato.  
-  *Prueba de aceptación:* Impedir baja si respalda un contrato en vigor que exige aval; permitir solo si hay sustituto o contrato extinto. Aplica `R.N.13`.
+  *Prueba de aceptación:* Impedir baja si respalda un contrato en vigor que exige aval; permitir solo si hay sustituto o contrato extinto. Aplica R.N.13.
 
 ---
 
 ##### R.G.07. Gestión de Contrato
 * **R.F.07.01 [CREATE] Alta de Contrato:** Como propietario quiero registrar un acuerdo de alquiler para formalizar la estancia.  
-  *Prueba de aceptación:* Validar `fechaFin > fechaInicio` y exigir firma del avalista si es requerido antes de pasar a `ACTIVO`. Aplica `R.N.14` y `R.N.15`.
+  *Prueba de aceptación:* Validar fechaFin > fechaInicio y exigir firma del avalista si es requerido antes de pasar a ACTIVO. Aplica R.N.14 y R.N.15.
 * **R.F.07.02 [READ] Consulta de Contrato:** Como parte involucrada quiero revisar cláusulas, importes y estado del contrato para verificar condiciones.  
-  *Prueba de aceptación:* Limitar lectura a inquilino, propietario y avalista asignados. Aplica `R.N.16`.
+  *Prueba de aceptación:* Limitar lectura a inquilino, propietario y avalista asignados. Aplica R.N.16.
 * **R.F.07.03 [EDIT] Modificación de Contrato:** Como propietario quiero prorrogar fechas o ajustar condiciones con acuerdo de partes.  
-  *Prueba de aceptación:* Verificar ausencia de solapamiento en prórrogas y requerir aceptación de inquilino/aval. Aplica `R.N.14`.
+  *Prueba de aceptación:* Verificar ausencia de solapamiento en prórrogas y requerir aceptación de inquilino/aval. Aplica R.N.14.
 * **R.F.07.04 [DELETE] Rescisión de Contrato:** Como propietario o administrador quiero cancelar un contrato para registrar su extinción formal.  
-  *Prueba de aceptación:* Cambiar estado a `RESCINDIDO` manteniendo registro histórico sin borrado físico. Aplica `R.N.17`.
+  *Prueba de aceptación:* Cambiar estado a RESCINDIDO manteniendo registro histórico sin borrado físico. Aplica R.N.17.
 
 ---
 
 ##### R.G.08. Gestión de Habitación
 * **R.F.08.01 [CREATE] Alta de Habitación:** Como propietario quiero registrar una habitación para ofrecerla individualmente.  
-  *Prueba de aceptación:* Validar identificador único dentro de la vivienda y precio mensual $> 0$. Aplica `R.N.18`.
+  *Prueba de aceptación:* Validar identificador único dentro de la vivienda y precio mensual $> 0$. Aplica R.N.18.
 * **R.F.08.02 [READ] Consulta de Habitaciones:** Como inquilino quiero ver detalles, fotos y disponibilidad de habitaciones para elegir estancia.  
-  *Prueba de aceptación:* Mostrar estado de ocupación según calendario y características detalladas. Aplica `R.N.18`.
+  *Prueba de aceptación:* Mostrar estado de ocupación según calendario y características detalladas. Aplica R.N.18.
 * **R.F.08.03 [EDIT] Modificación de Habitación:** Como propietario quiero cambiar equipamiento o precio para actualizar la oferta.  
-  *Prueba de aceptación:* Aplicar nuevo precio solo a contrataciones futuras sin alterar contratos vigentes. Aplica `R.N.19`.
+  *Prueba de aceptación:* Aplicar nuevo precio solo a contrataciones futuras sin alterar contratos vigentes. Aplica R.N.19.
 * **R.F.08.04 [DELETE] Baja de Habitación:** Como propietario quiero eliminar una habitación para retirarla de comercialización.  
-  *Prueba de aceptación:* Denegar baja si tiene contratos activos o reservas; actualizar cómputo de plazas. Aplica `R.N.20`.
+  *Prueba de aceptación:* Denegar baja si tiene contratos activos o reservas; actualizar cómputo de plazas. Aplica R.N.20.
 
 ---
 
 ##### R.G.09. Gestión de Vivienda
 * **R.F.09.01 [CREATE] Alta de Vivienda:** Como propietario quiero registrar un inmueble completo para su oferta integral o compartida.  
-  *Prueba de aceptación:* Validar aforo $\ge 1$ y dirección vinculada a ciudad existente. Aplica `R.N.21`.
+  *Prueba de aceptación:* Validar aforo $\ge 1$ y dirección vinculada a ciudad existente. Aplica R.N.21.
 * **R.F.09.02 [READ] Consulta de Viviendas:** Como inquilino quiero buscar viviendas por filtros de ubicación, aforo y normas para hallar opciones.  
-  *Prueba de aceptación:* Mostrar resultados coincidentes solo para inmuebles con titularidad validada. Aplica `R.N.05`.
+  *Prueba de aceptación:* Mostrar resultados coincidentes solo para inmuebles con titularidad validada. Aplica R.N.05.
 * **R.F.09.03 [EDIT] Modificación de Vivienda:** Como propietario quiero ajustar normas o descripción para mantener actualizado el anuncio.  
-  *Prueba de aceptación:* Impedir fijar un aforo inferior al número de inquilinos actuales. Aplica `R.N.21`.
+  *Prueba de aceptación:* Impedir fijar un aforo inferior al número de inquilinos actuales. Aplica R.N.21.
 * **R.F.09.04 [DELETE] Baja de Vivienda:** Como propietario quiero retirar un inmueble para cesar su arrendamiento.  
-  *Prueba de aceptación:* Bloquear si cuenta con contratos o habitaciones vigentes; ejecutar baja lógica. Aplica `R.N.20`.
+  *Prueba de aceptación:* Bloquear si cuenta con contratos o habitaciones vigentes; ejecutar baja lógica. Aplica R.N.20.
 
 ---
 
 ##### R.G.10. Gestión de Ciudad
 * **R.F.10.01 [CREATE] Alta de Ciudad:** Como administrador quiero añadir una ciudad y código postal para ampliar áreas operativas.  
-  *Prueba de aceptación:* Validar formato de CP según país y unicidad de la tupla (nombre, CP). Aplica `R.N.22`.
+  *Prueba de aceptación:* Validar formato de CP según país y unicidad de la tupla (nombre, CP). Aplica R.N.22.
 * **R.F.10.02 [READ] Consulta de Ciudades:** Como usuario quiero buscar ciudades para ubicar inmuebles o universidades.  
-  *Prueba de aceptación:* Permitir búsqueda predictiva y desplegar listado vinculado a país. Aplica `R.N.09`.
+  *Prueba de aceptación:* Permitir búsqueda predictiva y desplegar listado vinculado a país. Aplica R.N.09.
 * **R.F.10.03 [EDIT] Modificación de Ciudad:** Como administrador quiero corregir nombre o formato postal para subsanar errores.  
-  *Prueba de aceptación:* Preservar relaciones con viviendas y universidades tras la actualización. Aplica `R.N.22`.
+  *Prueba de aceptación:* Preservar relaciones con viviendas y universidades tras la actualización. Aplica R.N.22.
 * **R.F.10.04 [DELETE] Baja de Ciudad:** Como administrador quiero eliminar una ciudad registrada por error para depurar datos.  
-  *Prueba de aceptación:* Bloquear borrado si existen viviendas o universidades vinculadas. Aplica `R.N.10`.
+  *Prueba de aceptación:* Bloquear borrado si existen viviendas o universidades vinculadas. Aplica R.N.10.
 
 ---
 
 ##### R.G.11. Gestión de Gasto
 * **R.F.11.01 [CREATE] Alta de Gasto:** Como propietario quiero registrar facturas de suministros para repercutirlas a los inquilinos.  
-  *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica `R.N.23`.
+  *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica R.N.23.
 * **R.F.11.02 [READ] Consulta de Gastos:** Como usuario vinculado quiero revisar
 
 
