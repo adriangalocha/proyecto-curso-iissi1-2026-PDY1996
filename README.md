@@ -73,7 +73,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ### 4.1. Catálogo de Requisitos Funcionales
 
-#### R.G.01. Gestión de Usuario
+##### R.G.01. Gestión de Usuario
 * **R.F.01.01 [CREATE] Alta de Usuario:** Como usuario quiero registrar mis credenciales y datos básicos para acceder a la plataforma.  
   *Prueba de aceptación:* Validar formato de datos y rechazar email/DNI duplicados. Aplica `R.N.01`.
 * **R.F.01.02 [READ] Consulta de Usuario:** Como usuario autenticado quiero ver mis datos de perfil para verificar mi información.  
@@ -85,7 +85,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.02. Gestión de Propietario
+##### R.G.02. Gestión de Propietario
 * **R.F.02.01 [CREATE] Alta de Propietario:** Como propietario quiero registrar mi IBAN y acreditación para habilitar cobros e inmuebles.  
   *Prueba de aceptación:* Validar formato bancario y dejar estado en `PENDIENTE`. Aplica `R.N.04`.
 * **R.F.02.02 [READ] Consulta de Propietario:** Como propietario quiero consultar el estado de mi validación para saber si puedo operar.  
@@ -97,7 +97,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.03. Gestión de Inquilino
+##### R.G.03. Gestión de Inquilino
 * **R.F.03.01 [CREATE] Alta de Inquilino:** Como estudiante quiero registrar mi matrícula, hábitos y opción Erasmus para optar a alquileres.  
   *Prueba de aceptación:* Exigir matrícula; si `esErasmus = True`, requerir país y preferencia de compatibilidad. Aplica `R.N.06` y `R.N.07`.
 * **R.F.03.02 [READ] Consulta de Inquilino:** Como inquilino quiero ver mis hábitos y validación académica para revisar mi perfil público.  
@@ -109,7 +109,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.04. Gestión de País
+##### R.G.04. Gestión de País
 * **R.F.04.01 [CREATE] Alta de País:** Como administrador quiero registrar un país con código ISO para estandarizar el catálogo.  
   *Prueba de aceptación:* Validar código ISO único y campos no vacíos. Aplica `R.N.09`.
 * **R.F.04.02 [READ] Consulta de Países:** Como usuario quiero listar países para indicar mi procedencia o nacionalidad.  
@@ -121,7 +121,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.05. Gestión de Universidad
+##### R.G.05. Gestión de Universidad
 * **R.F.05.01 [CREATE] Alta de Universidad:** Como administrador quiero añadir una universidad con nombre, siglas y ciudad para asociarla a estudiantes.  
   *Prueba de aceptación:* Validar nombre único por ciudad y existencia de la ciudad vinculada. Aplica `R.N.11`.
 * **R.F.05.02 [READ] Consulta de Universidades:** Como estudiante quiero buscar universidades para vincular mi centro al perfil.  
@@ -133,7 +133,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.06. Gestión de Avalista
+##### R.G.06. Gestión de Avalista
 * **R.F.06.01 [CREATE] Alta de Avalista:** Como inquilino quiero vincular un avalista para satisfacer requisitos de solvencia.  
   *Prueba de aceptación:* Comprobar DNI distinto al inquilino y dejarlo en `PENDIENTE_CONFIRMACION`. Aplica `R.N.12`.
 * **R.F.06.02 [READ] Consulta de Avalista:** Como parte contractual quiero consultar datos del avalista para constatar el respaldo económico.  
@@ -145,7 +145,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.07. Gestión de Contrato
+##### R.G.07. Gestión de Contrato
 * **R.F.07.01 [CREATE] Alta de Contrato:** Como propietario quiero registrar un acuerdo de alquiler para formalizar la estancia.  
   *Prueba de aceptación:* Validar `fechaFin > fechaInicio` y exigir firma del avalista si es requerido antes de pasar a `ACTIVO`. Aplica `R.N.14` y `R.N.15`.
 * **R.F.07.02 [READ] Consulta de Contrato:** Como parte involucrada quiero revisar cláusulas, importes y estado del contrato para verificar condiciones.  
@@ -157,7 +157,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.08. Gestión de Habitación
+##### R.G.08. Gestión de Habitación
 * **R.F.08.01 [CREATE] Alta de Habitación:** Como propietario quiero registrar una habitación para ofrecerla individualmente.  
   *Prueba de aceptación:* Validar identificador único dentro de la vivienda y precio mensual $> 0$. Aplica `R.N.18`.
 * **R.F.08.02 [READ] Consulta de Habitaciones:** Como inquilino quiero ver detalles, fotos y disponibilidad de habitaciones para elegir estancia.  
@@ -169,7 +169,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.09. Gestión de Vivienda
+##### R.G.09. Gestión de Vivienda
 * **R.F.09.01 [CREATE] Alta de Vivienda:** Como propietario quiero registrar un inmueble completo para su oferta integral o compartida.  
   *Prueba de aceptación:* Validar aforo $\ge 1$ y dirección vinculada a ciudad existente. Aplica `R.N.21`.
 * **R.F.09.02 [READ] Consulta de Viviendas:** Como inquilino quiero buscar viviendas por filtros de ubicación, aforo y normas para hallar opciones.  
@@ -181,7 +181,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.10. Gestión de Ciudad
+##### R.G.10. Gestión de Ciudad
 * **R.F.10.01 [CREATE] Alta de Ciudad:** Como administrador quiero añadir una ciudad y código postal para ampliar áreas operativas.  
   *Prueba de aceptación:* Validar formato de CP según país y unicidad de la tupla (nombre, CP). Aplica `R.N.22`.
 * **R.F.10.02 [READ] Consulta de Ciudades:** Como usuario quiero buscar ciudades para ubicar inmuebles o universidades.  
@@ -193,7 +193,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ---
 
-#### R.G.11. Gestión de Gasto
+##### R.G.11. Gestión de Gasto
 * **R.F.11.01 [CREATE] Alta de Gasto:** Como propietario quiero registrar facturas de suministros para repercutirlas a los inquilinos.  
   *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica `R.N.23`.
 * **R.F.11.02 [READ] Consulta de Gastos:** Como usuario vinculado quiero revisar
@@ -205,94 +205,94 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 La fecha de inicio de un contrato debe ser estrictamente anterior a la fecha de fin.
 
-#### R.N.02. Solapamiento temporal
+##### R.N.02. Solapamiento temporal
 
 Una misma habitación no puede tener más de un contrato en estado ACTIVO o RESERVADO para un mismo rango de fechas.
 
-#### R.N.03. Aforo físico exacto
+##### R.N.03. Aforo físico exacto
 
 La capacidadTotal (aforo) de una Vivienda debe ser siempre exactamente igual a la suma de las plazas de todas las habitaciones que la componen.
 
-#### R.N.04. Roles mutuamente excluyentes
+##### R.N.04. Roles mutuamente excluyentes
 
 Un usuario no puede ser Propietario e Inquilino simultáneamente en la plataforma.
 
-#### R.N.05. Mayoría de edad legal
+##### R.N.05. Mayoría de edad legal
 
 Todo inquilino debe ser mayor de 18 años en el momento del registro del sistema.
 
-#### R.N.06. Filtro ERASMUS
+##### R.N.06. Filtro ERASMUS
 
 El sistema bloqueará la activación de un contrato si el Inquilino es Erasmus y la Vivienda tiene explícitamente denegada la admisión de estudiantes de intercambio.
 
-#### R.N.07. Filtro género
+##### R.N.07. Filtro género
 
 No se podrá activar un contrato si el género del Inquilino es incompatible con la restricción de convivencia (generoAdmitido) configurada en la Vivienda.
 
-#### R.N.08. Coherencia de origen Erasmus
+##### R.N.08. Coherencia de origen Erasmus
 
 Si un Inquilino indica marca que es estudiando Erasmus, su Pais de origen asociado no puede ser el país local donde opera la plataforma (ej: España).
 
-#### R.N.09. Avalista obligatorio
+##### R.N.09. Avalista obligatorio
 
 Si un Inquilino indica que requiere aval (sin ingresos), el sistema exige registrar y vincular la figura de un Avalista para activar el contrato.
 
-#### R.N.10. Preveción de Auto-Aval
+##### R.N.10. Preveción de Auto-Aval
 
 El DNI del Avalista no puede coincidir bajo ninguna circunstancia, con el DNI del Inquilino titular del contrato.
 
-#### R.N.11. Solvencia mínima aval
+##### R.N.11. Solvencia mínima aval
 
 Los ingresos mensuales declarados por el Avalista deben ser, como mínimo, el triple del precio base mensual de la habitación alquilada.
 
-#### R.N.12. Límite de contratos por Avalista
+##### R.N.12. Límite de contratos por Avalista
 
 Un mismo Avalista no puede respaldar simultáneamente a más de tres contratos activos en la plataforma.
 
-#### R.N.13. Límites legales de fianza
+##### R.N.13. Límites legales de fianza
 
 El importe de la fianza exigida en un contrato no puede ser inferior a una mensualidad ni superior a tres.
 
-#### R.N.14. Protección de Fianza ante daños
+##### R.N.14. Protección de Fianza ante daños
 
 El importe de un gasto categorizado como "REPARACIÓN" asignado individualmente a un inquilino no podrá superar nunca el saldo de la fianza depositada.
 
-#### R.N.15. Importes de gasto positivo
+##### R.N.15. Importes de gasto positivo
 
 El importe total de cualquier gasto registrado en el sistema debe ser estrictamente mayor que cero.
 
-#### R.N.16. Hermetistmo Matemático en prorrateos
+##### R.N.16. Hermetistmo Matemático en prorrateos
 
 La suma de los porcentajes asignados en todas las liquidaciones (deudas individuales) derivadas de un mismo recibo general debe sumar matemáticamente y de forma exacta el 100%.
 
-#### R.N.17. Lógica de fracción
+##### R.N.17. Lógica de fracción
 
 El porcentaje asignado a un inquilino en un recibo compartido debe estar siempre comprendido entre 0 y 100.
 
-#### R.N.18. Distribuición temporal de facturas
+##### R.N.18. Distribuición temporal de facturas
 
 Solo se generarán liquidaciones de suministros a aquellos inquilinos cuyo contrato vigente abarque la fecha de emisión del gasto facturado.
 
-#### R.N.19. Bloqueo de finalización por morosidad
+##### R.N.19. Bloqueo de finalización por morosidad
 
 El sistema no permitirá cambiar el estado de un contrato a "FINALIZADO" si el inquilino posee alguna liquidación de gasto pendiente de pago.
 
-#### R.N.20. Cronología de Gastos
+##### R.N.20. Cronología de Gastos
 
 La fecha de vencimiento y/o fecha de pago de un Gasto no puede ser nunca anterior a su fecha de emisión.
 
-#### R.N.21. Precios estrictamente positivos
+##### R.N.21. Precios estrictamente positivos
 
 El precioBaseMensual de cualquier Habitacion y el precioAlquilerCompleto de la Vivienda deben ser valores numéricos estrictamente mayores que cero.
 
-#### R.N.22. Coherencia espacial para parejas
+##### R.N.22. Coherencia espacial para parejas
 
 Si un contrato se formaliza bajo la modalidad de pareja, la Habitación vinculada debe tener obligatoriamente el atributo plazas con valor igual a 2.
 
-#### R.N.23. Requisito aval/nomina
+##### R.N.23. Requisito aval/nomina
 Un inquilino puede tener una nomina, en el caso de no tenerla se requerira aval.
 
-#### R.N.24. Aval obligatorio
+##### R.N.24. Aval obligatorio
 El propietario puede indicar que una vivienda requiere aval obligatorio (independientemente de la nomina).
 
 ### 4.2. Mapa de historias de usuario (opcional)
