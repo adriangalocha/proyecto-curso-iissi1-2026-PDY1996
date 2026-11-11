@@ -316,10 +316,15 @@ El propietario puede indicar que una vivienda requiere aval obligatorio (indepen
 
 ### 4.3. Requisitos no funcionales (opcional)
 
-**R.N.F. 01. Título requisito no funcional**
-Como [tipo de usuario]
-quiero [servicio]
-para [razón]
+**R.N.F. 01. Seguridad y encriptación de datos sensibles**
+Como Usuario 
+quiero que mis datos personales (DNI, contraseña, ingresos económicos) sean almacenados de forma encriptada en la base de datos
+para garantizar la privacidad de mi información y evitar fraudes o suplantaciones de identidad en caso de un ataque cibernético.
+
+**R.N.F. 02. Disponibilidad del sistema**
+Como Propietario
+quiero que la plataforma esté operativa y accesible el 99.9% del tiempo (especialmente a final y principio de mes)
+para asegurarme de que los inquilinos siempre puedan acceder al sistema para abonar sus liquidaciones de gastos y firmar los contratos sin interrupciones técnicas.
 
 -- fin entregable 1 --
 
