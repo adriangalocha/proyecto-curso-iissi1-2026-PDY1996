@@ -330,7 +330,7 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 
 ### 5.1. Diagramas de clases UML
 
-<img src="./Fotos/diagrama.png" alt="Diagrama de clases" width="500">
+<img src="./Fotos/diagrama.png" alt="Diagrama de clases" width="700">
 
 
 ### 5.2. Escenarios de prueba
