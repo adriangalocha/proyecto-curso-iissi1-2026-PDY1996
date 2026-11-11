@@ -307,10 +307,8 @@ El precioBaseMensual de cualquier Habitacion y el precioAlquilerCompleto de la V
 Si un contrato se formaliza bajo la modalidad de pareja, la Habitación vinculada debe tener obligatoriamente el atributo plazas con valor igual a 2.
 
 ##### R.N.23. Requisito aval/nomina
-Un inquilino puede tener una nomina, en el caso de no tenerla se requerira aval.
 
-##### R.N.24. Aval obligatorio
-El propietario puede indicar que una vivienda requiere aval obligatorio (independientemente de la nomina).
+Un inquilino puede tener una nomina, en el caso de no tenerla se requerira aval.
 
 ### 4.2. Mapa de historias de usuario (opcional)
 
@@ -332,7 +330,8 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 
 ### 5.1. Diagramas de clases UML
 
-- con restricciones.
+<img src="./Fotos/diagrama.png" alt="Diagrama de clases" width="500">
+
 
 ### 5.2. Escenarios de prueba
 
