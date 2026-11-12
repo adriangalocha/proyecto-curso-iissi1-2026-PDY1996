@@ -383,7 +383,7 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 <img src="./Fotos/E.P4.jpeg" alt="Escenarios prueba" width="700">
 
 #### E.P.05: Comprobación de Compatibilidad y Filtros de Acceso* **Requisitos asociados:** R.N.06, R.N.07, R.N.22*
-<img src="./Fotos/E.P5.jpeg" alt="Escenarios prueba" width="700">
+<img src="./Fotos/E.P5.jpg" alt="Escenarios prueba" width="700">
 
 #### E.P.06: Formalización de Contrato, Solapamiento y Fianza* **Requisitos asociados:** R.F.07.01, R.N.01, R.N.02, R.N.13*
 <img src="./Fotos/E.P6.jpeg" alt="Escenarios prueba" width="700">
@@ -401,16 +401,38 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos.
 
-|       | EntidadX   | AsociaciónX  | RestricciónX  | Entidad2 ...   | 
-|:------|:-----------|:-----------|:-----------|:-----------|
-| RI-1  | X          | X          | X          | X          |
-| RI-2  |            | X          |            | X          |
-| RF-1  |            | X          |            | X          |
-| RF-2  | X          |            | X          | X          |
-| RN-1  |            | X          |            |            |
-| RN-2  | X          | X          | X          |            |
-| ...   |            |            |            |            |
-
+| | Usuario | Inquilino | Aval | Vivienda | Habitación | Contrato | Gasto | Liquidación | Estado (Enum) | Asoc. firma | Asoc. posee | Asoc. contiene | Asoc. alquila en | Asoc. obtiene | Asoc. genera | Asoc. asigna | Rest. {disjunta, incompleta} | Rest. RN01 (Máx 3 avales) | Rest. RN02 (Sin deuda al finalizar) | Rest. RN03 (Gasto a inquilino) |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **R.I.01** | X | X | | | | | | | | | | | | | | | X | | | |
+| **R.I.02** | | X | X | | | | | | | | X | | | | | | | | | |
+| **R.I.03** | | | | X | | | | | | | | | | | | | | | | |
+| **R.I.04** | | | | X | X | | | | | | | X | | | | | | | | |
+| **R.I.05** | | | | | X | X | | | X | | | | X | | | | | | | |
+| **R.I.06** | | | | X | | | X | | | | | | | | X | | | | | |
+| **R.I.07** | | X | | | | X | X | X | | X | | | | X | | X | | | | X |
+| **R.N.01** | | | | | | X | | | | | | | | | | | | | | |
+| **R.N.02** | | | | | X | X | | | X | | | | X | | | | | | | |
+| **R.N.03** | | | | X | X | | | | | | | X | | | | | | | | |
+| **R.N.04** | X | X | | | | | | | | | | | | | | | X | | | |
+| **R.N.05** | X | X | | | | | | | | | | | | | | | | | | |
+| **R.N.06** | | X | | X | | X | | | X | X | | X | X | | | | | | | |
+| **R.N.07** | | X | | X | | X | | | X | X | | X | X | | | | | | | |
+| **R.N.08** | | X | | | | | | | | | | | | | | | | | | |
+| **R.N.09** | | X | X | | | X | | | X | X | X | | | | | | | | | |
+| **R.N.10** | X | X | X | | | X | | | | X | X | | | | | | | | | |
+| **R.N.11** | | | X | | X | X | | | | | X | | X | | | | | | | |
+| **R.N.12** | | | X | | | X | | | X | | X | | | | | | | | | |
+| **R.N.13** | | | | | X | X | | | | | | | X | | | | | | | |
+| **R.N.14** | | X | | | | X | X | X | | X | | | | X | | X | | | | X |
+| **R.N.15** | | | | | | | X | | | | | | | | | | | | | |
+| **R.N.16** | | X | | | | | X | X | | | | | | | | X | | | | X |
+| **R.N.17** | | X | | | | | | X | | | | | | | | X | | | | X |
+| **R.N.18** | | X | | | | X | X | X | X | X | | | | X | | X | | | | X |
+| **R.N.19** | | X | | | | X | | X | X | X | | | | X | | | | | X | |
+| **R.N.20** | | | | | | | X | | | | | | | | | | | | | |
+| **R.N.21** | | | | X | X | | | | | | | | | | | | | | | |
+| **R.N.22** | | | | | X | X | | | | | | | X | | | | | | | |
+| **R.N.23** | | X | X | | | | | | | | X | | | | | | | X | | |
 -- fin entregable 2 --
 
 ## 7. Modelo relacional en 3FN
