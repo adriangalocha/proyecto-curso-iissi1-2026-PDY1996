@@ -73,7 +73,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 
 ### 4.1. Catálogo de Requisitos Funcionales
 
-##### R.G.01. Gestión de Usuario
+**R.G.01. Gestión de Usuario**
 * **R.F.01.01 [CREATE] Alta de Usuario:** Como usuario quiero registrar mis credenciales y datos básicos para acceder a la plataforma.  
   *Prueba de aceptación:* Validar formato de datos y rechazar email/DNI duplicados. Aplica R.N.01.
 * **R.F.01.02 [READ] Consulta de Usuario:** Como usuario autenticado quiero ver mis datos de perfil para verificar mi información.  
