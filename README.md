@@ -83,9 +83,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.01.04 [DELETE] Baja de Usuario:** Como usuario quiero darme de baja para cesar mi cuenta en el sistema.  
   *Prueba de aceptación:* Aplicar baja lógica; bloquearla si existen contratos o pagos pendientes. Aplica R.N.03.
 
----
-
-##### R.G.02. Gestión de Propietario
+**R.G.02. Gestión de Propietario**
 * **R.F.02.01 [CREATE] Alta de Propietario:** Como propietario quiero registrar mi IBAN y acreditación para habilitar cobros e inmuebles.  
   *Prueba de aceptación:* Validar formato bancario y dejar estado en PENDIENTE. Aplica R.N.04.
 * **R.F.02.02 [READ] Consulta de Propietario:** Como propietario quiero consultar el estado de mi validación para saber si puedo operar.  
@@ -95,9 +93,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.02.04 [DELETE] Baja de Propietario:** Como propietario quiero revocar mi rol para dejar de ofertar inmuebles.  
   *Prueba de aceptación:* Bloquear baja si hay anuncios activos o contratos vigentes; desactivar inmuebles libres. Aplica R.N.03.
 
----
-
-##### R.G.03. Gestión de Inquilino
+**R.G.03. Gestión de Inquilino**
 * **R.F.03.01 [CREATE] Alta de Inquilino:** Como estudiante quiero registrar mi matrícula, hábitos y opción Erasmus para optar a alquileres.  
   *Prueba de aceptación:* Exigir matrícula; si esErasmus = True, requerir país y preferencia de compatibilidad. Aplica R.N.06 y R.N.07.
 * **R.F.03.02 [READ] Consulta de Inquilino:** Como inquilino quiero ver mis hábitos y validación académica para revisar mi perfil público.  
@@ -107,9 +103,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.03.04 [DELETE] Baja de Inquilino:** Como inquilino quiero eliminar mi perfil para cesar la búsqueda de alojamiento.  
   *Prueba de aceptación:* Impedir baja si existe contrato activo; cancelar solicitudes de reserva pendientes. Aplica R.N.03.
 
----
-
-##### R.G.04. Gestión de País
+**R.G.04. Gestión de País**
 * **R.F.04.01 [CREATE] Alta de País:** Como administrador quiero registrar un país con código ISO para estandarizar el catálogo.  
   *Prueba de aceptación:* Validar código ISO único y campos no vacíos. Aplica R.N.09.
 * **R.F.04.02 [READ] Consulta de Países:** Como usuario quiero listar países para indicar mi procedencia o nacionalidad.  
@@ -119,9 +113,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.04.04 [DELETE] Baja de País:** Como administrador quiero eliminar un país obsoleto para depurar el catálogo.  
   *Prueba de aceptación:* Bloquear borrado si existen usuarios, avalistas o universidades asociadas. Aplica R.N.10.
 
----
-
-##### R.G.05. Gestión de Universidad
+**R.G.05. Gestión de Universidad**
 * **R.F.05.01 [CREATE] Alta de Universidad:** Como administrador quiero añadir una universidad con nombre, siglas y ciudad para asociarla a estudiantes.  
   *Prueba de aceptación:* Validar nombre único por ciudad y existencia de la ciudad vinculada. Aplica R.N.11.
 * **R.F.05.02 [READ] Consulta de Universidades:** Como estudiante quiero buscar universidades para vincular mi centro al perfil.  
@@ -131,9 +123,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.05.04 [DELETE] Baja de Universidad:** Como administrador quiero retirar una universidad para eliminar entidades inactivas.  
   *Prueba de aceptación:* Denegar eliminación si tiene inquilinos vinculados; permitir solo con cero referencias. Aplica R.N.10.
 
----
-
-##### R.G.06. Gestión de Avalista
+**R.G.06. Gestión de Avalista**
 * **R.F.06.01 [CREATE] Alta de Avalista:** Como inquilino quiero vincular un avalista para satisfacer requisitos de solvencia.  
   *Prueba de aceptación:* Comprobar DNI distinto al inquilino y dejarlo en PENDIENTE_CONFIRMACION. Aplica R.N.12.
 * **R.F.06.02 [READ] Consulta de Avalista:** Como parte contractual quiero consultar datos del avalista para constatar el respaldo económico.  
@@ -143,9 +133,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.06.04 [DELETE] Baja de Avalista:** Como inquilino quiero desvincular un avalista para sustituirlo o retirarlo tras finalizar contrato.  
   *Prueba de aceptación:* Impedir baja si respalda un contrato en vigor que exige aval; permitir solo si hay sustituto o contrato extinto. Aplica R.N.13.
 
----
-
-##### R.G.07. Gestión de Contrato
+**R.G.07. Gestión de Contrato**
 * **R.F.07.01 [CREATE] Alta de Contrato:** Como propietario quiero registrar un acuerdo de alquiler para formalizar la estancia.  
   *Prueba de aceptación:* Validar fechaFin > fechaInicio y exigir firma del avalista si es requerido antes de pasar a ACTIVO. Aplica R.N.14 y R.N.15.
 * **R.F.07.02 [READ] Consulta de Contrato:** Como parte involucrada quiero revisar cláusulas, importes y estado del contrato para verificar condiciones.  
@@ -155,9 +143,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.07.04 [DELETE] Rescisión de Contrato:** Como propietario o administrador quiero cancelar un contrato para registrar su extinción formal.  
   *Prueba de aceptación:* Cambiar estado a RESCINDIDO manteniendo registro histórico sin borrado físico. Aplica R.N.17.
 
----
-
-##### R.G.08. Gestión de Habitación
+**R.G.08. Gestión de Habitación**
 * **R.F.08.01 [CREATE] Alta de Habitación:** Como propietario quiero registrar una habitación para ofrecerla individualmente.  
   *Prueba de aceptación:* Validar identificador único dentro de la vivienda y precio mensual $> 0$. Aplica R.N.18.
 * **R.F.08.02 [READ] Consulta de Habitaciones:** Como inquilino quiero ver detalles, fotos y disponibilidad de habitaciones para elegir estancia.  
@@ -167,9 +153,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.08.04 [DELETE] Baja de Habitación:** Como propietario quiero eliminar una habitación para retirarla de comercialización.  
   *Prueba de aceptación:* Denegar baja si tiene contratos activos o reservas; actualizar cómputo de plazas. Aplica R.N.20.
 
----
-
-##### R.G.09. Gestión de Vivienda
+**R.G.09. Gestión de Vivienda**
 * **R.F.09.01 [CREATE] Alta de Vivienda:** Como propietario quiero registrar un inmueble completo para su oferta integral o compartida.  
   *Prueba de aceptación:* Validar aforo $\ge 1$ y dirección vinculada a ciudad existente. Aplica R.N.21.
 * **R.F.09.02 [READ] Consulta de Viviendas:** Como inquilino quiero buscar viviendas por filtros de ubicación, aforo y normas para hallar opciones.  
@@ -179,9 +163,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.09.04 [DELETE] Baja de Vivienda:** Como propietario quiero retirar un inmueble para cesar su arrendamiento.  
   *Prueba de aceptación:* Bloquear si cuenta con contratos o habitaciones vigentes; ejecutar baja lógica. Aplica R.N.20.
 
----
-
-##### R.G.10. Gestión de Ciudad
+**R.G.10. Gestión de Ciudad**
 * **R.F.10.01 [CREATE] Alta de Ciudad:** Como administrador quiero añadir una ciudad y código postal para ampliar áreas operativas.  
   *Prueba de aceptación:* Validar formato de CP según país y unicidad de la tupla (nombre, CP). Aplica R.N.22.
 * **R.F.10.02 [READ] Consulta de Ciudades:** Como usuario quiero buscar ciudades para ubicar inmuebles o universidades.  
@@ -191,9 +173,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.10.04 [DELETE] Baja de Ciudad:** Como administrador quiero eliminar una ciudad registrada por error para depurar datos.  
   *Prueba de aceptación:* Bloquear borrado si existen viviendas o universidades vinculadas. Aplica R.N.10.
 
----
-
-#### R.G.11. Gestión de Gasto
+**R.G.11. Gestión de Gasto**
 * **R.F.11.01 [CREATE] Alta de Gasto:** Como propietario quiero registrar facturas de suministros para repercutirlas a los inquilinos.  
   *Prueba de aceptación:* Validar importe $> 0$ y vigencia de contratos en la vivienda durante el periodo. Aplica `R.N.23`.
 * **R.F.11.02 [READ] Consulta de Gastos:** Como usuario vinculado quiero revisar el histórico de recibos para verificar consumos.  
@@ -203,9 +183,7 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.11.04 [DELETE] Anulación de Gasto:** Como propietario quiero anular una factura errónea para cancelar cobros asociados.  
   *Prueba de aceptación:* Impedir anulación si hay pagos registrados; suprimir liquidaciones pendientes si no hay cobros. Aplica `R.N.25`.
 
----
-
-#### R.G.12. Gestión de Liquidación
+**R.G.12. Gestión de Liquidación**
 * **R.F.12.01 [CREATE] Alta de Liquidación:** Como sistema quiero generar la deuda individual por inquilino a partir de un gasto común.  
   *Prueba de aceptación:* Validar que la suma de partes cuadre el 100% del gasto y fijar estado `PENDIENTE`. Aplica `R.N.26`.
 * **R.F.12.02 [READ] Consulta de Liquidación:** Como inquilino o avalista quiero consultar cuotas e histórico para gestionar pagos.  
