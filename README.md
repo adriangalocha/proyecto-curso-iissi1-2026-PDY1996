@@ -433,6 +433,9 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 | **R.N.21** | | | | X | X | | | | | | | | | | | | | | | |
 | **R.N.22** | | | | | X | X | | | | | | | X | | | | | | | |
 | **R.N.23** | | X | X | | | | | | | | X | | | | | | | X | | |
+
+
+
 -- fin entregable 2 --
 
 ## 7. Modelo relacional en 3FN
