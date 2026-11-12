@@ -193,6 +193,63 @@ Así quedaría después de implementar nuestro sistema de gestión.
 * **R.F.12.04 [DELETE] Cancelación de Liquidación:** Como sistema o administrador quiero anular una liquidación errónea para emitir corrección.  
   *Prueba de aceptación:* Bloquear si figura en estado `PAGADA` y reajustar saldos del inquilino y gasto. Aplica `R.N.25`.
   
+#### 4.1.1. Requisitos de Información
+
+##### R.I.01. Información de Usuario e Inquilino
+Como Administrador
+quiero almacenar el DNI, contraseña, nombre, apellido, email, teléfono, documento, género, estatus y nivel de ingresos del inquilino
+para gestionar su identidad, evaluar su perfil y permitirle el acceso a la plataforma.   
+**Pruebas de aceptación:**
+* Comprobar que el sistema guarda correctamente todos los campos obligatorios del perfil al completar el registro.
+* Comprobar que el sistema rechaza el guardado si el email introducido ya está asociado a otro usuario.
+
+##### R.I.02. Información de Aval
+Como Administrador
+quiero registrar el DNI, nombre, teléfono e ingresos del aval
+para tener almacenado un respaldo financiero formal en caso de impagos del inquilino.   
+**Pruebas de aceptación:**
+* Verificar que los datos del aval se almacenan y vinculan correctamente al perfil del inquilino correspondiente.   
+* Comprobar que los ingresos del aval se guardan con formato numérico para permitir evaluaciones de solvencia.
+
+##### R.I.03. Información de Vivienda
+Como Propietario
+quiero almacenar el código fiscal, dirección y capacidad total de la vivienda
+para identificar el inmueble legalmente y conocer su aforo máximo.   
+**Pruebas de aceptación:**
+* Comprobar que el sistema no permite guardar el registro de una vivienda si falta el código fiscal o la dirección.   
+* Comprobar que la capacidad total se almacena como un valor numérico entero.   
+
+##### R.I.04. Información de Habitación
+Como Propietario
+quiero guardar el código, número de plazas y precio mensual de cada habitación
+para poder mostrar la oferta exacta y calcular los cobros correspondientes.   
+**Pruebas de aceptación:**
+* Verificar que la información de cada habitación creada queda vinculada de forma obligatoria a una vivienda existente.   
+* Comprobar que el precio se almacena correctamente admitiendo decimales.
+
+##### R.I.05. Información de Contrato
+Como Administrador
+quiero registrar la fecha de inicio, fecha final, importe de la fianza y el estado del contrato
+para mantener un control legal y temporal del alquiler de la habitación.   
+**Pruebas de aceptación:**
+* Comprobar que el sistema restringe el guardado del estado del contrato únicamente a los valores permitidos (reservado, activo, finalizado).   
+* Verificar que el sistema rechaza el almacenamiento si la fecha final introducida es anterior a la fecha de inicio.   
+
+##### R.I.06. Información de Gasto
+Como Administrador
+quiero almacenar la fecha de emisión, fecha de vencimiento y el importe total de un gasto
+para mantener un registro histórico de las facturas asociadas al inmueble.   
+**Pruebas de aceptación:**
+* Comprobar que el sistema exige introducir obligatoriamente ambas fechas (emisión y vencimiento) para poder registrar la información del gasto.  
+* Comprobar que el importe total del gasto se guarda de forma íntegra.
+
+##### R.I.07. Información de Liquidación
+Como Administrador
+quiero guardar el importe consignado (deuda asignada) y el importe recaudado (dinero ya pagado) de cada liquidación
+para auditar la solvencia económica y saber cuánto dinero debe aún cada inquilino.   
+**Pruebas de aceptación:**
+* Comprobar que el sistema actualiza correctamente el valor del importe recaudado almacenado cuando un inquilino realiza un pago.  
+* Verificar que el importe consignado queda permanentemente guardado y asociado de forma correcta a su correspondiente gasto e inquilino. 
 
 #### 4.1.2. Reglas de negocio
 
