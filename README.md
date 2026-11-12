@@ -313,7 +313,10 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 
 ### 5.2. Escenarios de prueba
 
-- con descripción textual y diagrama de objetos UML.
+#### E.P.01: Registro de Usuarios y Restricción de Roles Mutuos* **Requisitos asociados:** R.F.01.01, R.N.04, R.N.05, R.N.F.01*
+<img src="./Fotos/E.P1.jpeg" alt="Escenarios prueba" width="700">
+
+
 
 ## 6. Matrices de trazabilidad
 
