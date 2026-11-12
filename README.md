@@ -316,7 +316,29 @@ para asegurarme de que los inquilinos siempre puedan acceder al sistema para abo
 #### E.P.01: Registro de Usuarios y Restricción de Roles Mutuos* **Requisitos asociados:** R.F.01.01, R.N.04, R.N.05, R.N.F.01*
 <img src="./Fotos/E.P1.jpeg" alt="Escenarios prueba" width="700">
 
+#### E.P.02: Perfil Erasmus y Reglas de Origen* **Requisitos asociados:** R.F.03.01, R.F.03.03, R.N.08*
+<img src="./Fotos/E.P2.jpeg" alt="Escenarios prueba" width="700">
 
+#### E.P.03: Validación y Vinculación de Avalistas* **Requisitos asociados:** R.F.06.01, R.N.09, R.N.10, R.N.11, R.N.12, R.N.23, Diagrama (0..3)*
+<img src="./Fotos/E.P3.jpeg" alt="Escenarios prueba" width="700">
+
+#### E.P.04: Creación de Vivienda y Aforo Físico Exacto* **Requisitos asociados:** R.F.08.01, R.F.09.01, R.N.03, R.N.21*
+<img src="./Fotos/E.P4.jpeg" alt="Escenarios prueba" width="700">
+
+#### E.P.05: Comprobación de Compatibilidad y Filtros de Acceso* **Requisitos asociados:** R.N.06, R.N.07, R.N.22*
+<img src="./Fotos/E.P5.jpeg" alt="Escenarios prueba" width="700">
+
+#### E.P.06: Formalización de Contrato, Solapamiento y Fianza* **Requisitos asociados:** R.F.07.01, R.N.01, R.N.02, R.N.13*
+<img src="./Fotos/E.P6.jpeg" alt="Escenarios prueba" width="700">
+
+#### E.P.07: Imputación de Gastos y Cuadre de Liquidaciones* **Requisitos asociados:** R.F.11.01, R.N.15, R.N.16, R.N.17, R.N.18, R.N.20* 
+<img src="./Fotos/E.P7.jpeg" alt="Escenarios prueba" width="700">
+
+#### E.P.08: Reparaciones con Cargo a Fianza y Cierre de Contrato* **Requisitos asociados:** R.F.07.04, R.N.14, R.N.19, Diagrama (RN02 Contrato)* 
+<img src="./Fotos/E.P8.jpeg" alt="Escenarios prueba" width="700">
+
+#### E.P.09: Integridad de Catálogos Maestros (Administrador)* **Requisitos asociados:** R.F.04.04, R.F.05.04, R.F.10.04*
+<img src="./Fotos/E.P9.jpeg" alt="Escenarios prueba" width="700">
 
 ## 6. Matrices de trazabilidad
 
