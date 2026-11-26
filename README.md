@@ -476,3 +476,4 @@ Hemos llevado a cabo búsqueda de información en los siguientes sitios web:
 
 https://www.laopiniondezamora.es/zamora/2026/08/03/carrera-estudiantes-encontrar-alojamiento-zamora-133040075.html
 
+## -- entregable 3, 14 diciembre --
